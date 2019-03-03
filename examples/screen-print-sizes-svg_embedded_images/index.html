@@ -15,58 +15,22 @@
     <!--  <link rel="stylesheet" href=""> -->
 
     <style>
-        .overlay {
-            position: fixed;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 0, 0, 0.7);
-            transition: opacity 500ms;
-            visibility: hidden;
-            opacity: 0;
+        .noselect {
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
         }
 
-        .overlay:target {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .popup {
-            margin: 70px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 5px;
-            width: 30%;
-            position: relative;
-            transition: all 5s ease-in-out;
-        }
-
-        .popup h2 {
-            margin-top: 0;
-            color: #333;
-            font-family: Tahoma, Arial, sans-serif;
-        }
-
-        .popup .close {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            transition: all 200ms;
-            font-size: 30px;
-            font-weight: bold;
-            text-decoration: none;
-            color: #333;
-        }
-
-        .popup .close:hover {
-            color: #06D85F;
-        }
-
-        .popup .content {
-            max-height: 30%;
-            overflow: auto;
-        }
 
         @media screen and (max-width: 700px) {
             .box {
@@ -117,10 +81,10 @@
         </div>
     </div>
     <div style="width:80%;height:100vh;overflow-y: scroll;float:right;">
-        <object id="svg-object" data="MaximumScreenPrintSizes.svg" height="" width="100%" type="image/svg+xml"></object>
+        <object id="svg-object" class="noselect" data="MaximumScreenPrintSizes.svg" height="" width="100%" type="image/svg+xml"></object>
     </div>
     <input id="sliderx" type="range" min="-2000" max="2000" value="0" oninput="moveSlider(this, 'x')" />
-    <input id="slidery" type="range" min="-1000" max="1000" value="0"  oninput="moveSlider(this, 'y')" />
+    <input id="slidery" type="range" min="-1000" max="1000" value="0" oninput="moveSlider(this, 'y')" />
     <input id="" type="range" min="0" max="5000" value="" oninput="moveSlider(this, 'width')" />
     <input id="" type="range" min="0" max="5000" value="" oninput="moveSlider(this, 'height')" />
     <input id="" type="range" min="0" max="5000" value="" oninput="moveSlider(this, 'boxwidth')" />
@@ -145,15 +109,15 @@
             let pbackregion = svgDoc.querySelectorAll('#printregionsback>path');
             let frontregion = [...ifrontregion, ...pfrontregion]
             let backregion = [...ibackregion, ...pbackregion]
-    
-             backregion.forEach(function (a) {
+
+            backregion.forEach(function (a) {
                 console.log(a)
                 a.addEventListener("click", () => { document.getElementById('back-input').click() }, false);
             })
             frontregion.forEach(function (f) {
                 console.log(f)
                 f.addEventListener("click", () => { document.getElementById('front-input').click() }, false);
-            }) 
+            })
         })
 
 
@@ -170,10 +134,10 @@
                 y: vBoxVals[1],
                 width: vBoxVals[2],
                 height: vBoxVals[3],
-                boxwidth:boxwidth,
-                boxheight:boxheight
+                boxwidth: boxwidth,
+                boxheight: boxheight
             }
-          
+
             values[param] = slider.value
             svgEl.setAttribute('width', `${values['boxwidth']}`);
             svgEl.setAttribute('height', `${values['boxheight']}`);
