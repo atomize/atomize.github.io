@@ -61,7 +61,7 @@
         <![endif]-->
     <input type="file" onchange="previewFile('front')" id="front-input" style="display:none">
     <input type="file" onchange="previewFile('back')" id="back-input" style="display:none">
-    
+
     <div width="20%" id="colorpicker">
         <span style="background-image: url('grad-min.png');background-size: 100%;padding:0px; margin-bottom:0px;">
             <input type="range" min="0" max="359" value="0" id="HUE" style="width:100%;height:20px;">
@@ -71,7 +71,8 @@
         </div>
     </div>
     <div style="width:80%;height:100vh;overflow-y: scroll;float:right;">
-        <object id="svg-object" class="noselect" data="MaximumScreenPrintSizes.svg" height="" width="100%" type="image/svg+xml"></object>
+        <object id="svg-object" class="noselect" data="MaximumScreenPrintSizes.svg" height="" width="100%"
+            type="image/svg+xml"></object>
     </div>
     <input id="sliderx" type="range" min="-2000" max="2000" value="0" oninput="moveSlider(this, 'x')" />
     <input id="slidery" type="range" min="-1000" max="1000" value="0" oninput="moveSlider(this, 'y')" />
@@ -99,15 +100,19 @@
             let pbackregion = svgDoc.querySelectorAll('#printregionsback>path');
             let frontregion = [...ifrontregion, ...pfrontregion]
             let backregion = [...ibackregion, ...pbackregion]
-
-            backregion.forEach(function (a) {
+            [['front', frontregion], ['back', backregion]].forEach((region) => {
+                region[1].forEach((regionEl) => {
+                    regionEl.addEventListener("click", () => { document.getElementById(`${region[0]}` - input).click() }, false);
+                })
+            })
+            /* backregion.forEach(function (a) {
                 console.log(a)
                 a.addEventListener("click", () => { document.getElementById('back-input').click() }, false);
             })
             frontregion.forEach(function (f) {
                 console.log(f)
                 f.addEventListener("click", () => { document.getElementById('front-input').click() }, false);
-            })
+            }) */
         })
 
 
