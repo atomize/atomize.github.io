@@ -100,19 +100,19 @@
             let pbackregion = svgDoc.querySelectorAll('#printregionsback>path');
             let frontregion = [...ifrontregion, ...pfrontregion]
             let backregion = [...ibackregion, ...pbackregion]
-            [['front', frontregion], ['back', backregion]].forEach((region) => {
+            /* [['front', frontregion], ['back', backregion]].forEach((region) => {
                 region[1].forEach((regionEl) => {
                     regionEl.addEventListener("click", () => { document.getElementById(`${region[0]}` - input).click() }, false);
                 })
-            })
-            /* backregion.forEach(function (a) {
+            }) */
+            backregion.forEach(function (a) {
                 console.log(a)
                 a.addEventListener("click", () => { document.getElementById('back-input').click() }, false);
             })
             frontregion.forEach(function (f) {
                 console.log(f)
                 f.addEventListener("click", () => { document.getElementById('front-input').click() }, false);
-            }) */
+            })
         })
 
 
