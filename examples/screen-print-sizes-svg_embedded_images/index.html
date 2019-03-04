@@ -13,8 +13,13 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--  <link rel="stylesheet" href=""> -->
-
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet">
     <style>
+        * {
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+
         .noselect {
             -webkit-touch-callout: none;
             /* iOS Safari */
@@ -31,55 +36,167 @@
                                   supported by Chrome and Opera */
         }
 
+        *,
+        *:before,
+        *:after {
+            box-sizing: border-box;
+        }
 
-        @media screen and (max-width: 700px) {
-            .box {
-                width: 70%;
+        body {
+            margin: 0px;
+            font-family: 'Open Sans', 'sans-serif';
+            background-color: #444;
+            color: #ffffff;
+        }
+
+       h1,h2{
+           margin:0px;
+           padding: 0px;
+       }
+        p {
+            margin: 0 0 1em 0;
+        }
+
+        .wrapper {
+            max-width: 95vw;
+            margin: 0 auto;
+            display: grid;
+            grid-gap: 3px;
+            align-content: center;
+        }
+        .header {
+            text-align: center;
+            font-size: 1.3vw;
+        }
+        .content {
+            max-height: 92vh;
+            overflow-y: scroll;
+        }
+        .footer{
+            height: 0px !important;
+        }
+        @media screen and (max-width: 1025px) {
+            .sidebar {
+                grid-row: 3 !important;
+                max-height: fit-content;
+            }
+            .content {
+            max-height: 62vh;
+            overflow-y: scroll;
+        }
+        .sidebar {
+            font-size: 15px !important;
+        }
+        }
+
+        @media screen and (min-width: 1025px) {
+
+            /* no grid support? */
+            .sidebar {
+                float: left;
+                width: 19.1489%;
             }
 
-            .popup {
-                width: 70%;
+            .content {
+                float: right;
+                width: 100%;
+            }
+
+            .wrapper {
+                margin: 0 auto;
+                grid-template-columns: 1fr 3fr;
+            }
+
+            .header,
+            .footer {
+                grid-column: 1 / -1;
+                /* needed for the floated layout */
+                clear: both;
+            }
+
+        }
+
+        .wrapper>* {
+            background-color: rgb(248, 248, 248);
+            color: #444;
+            border-radius: 5px;
+            padding: 20px;
+            
+            /* needed for the floated layout*/
+            margin-bottom: 10px;
+        }
+        .sidebar {
+            font-size: 22px;
+        }
+        /* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+        @supports (display: grid) {
+            .wrapper>* {
+                width: auto;
+                margin: 0;
             }
         }
 
         #colorpicker {
+            grid-area: colors;
             align-content: center;
             text-align: center;
-            float: left;
+
         }
 
+
+
+      
+
         #svg-object {
-            float: center;
+            width: inherit !important;
         }
     </style>
 
 </head>
 
 <body>
+    <div class="wrapper">
+        <header class="header"><h2>Manipulating embedded images inside of an external SVG with Javascript & base64 encoding</h2></header>
+        <aside class="sidebar">
+            <p>Click on any <strong>FRONT</strong> or <strong>BACK</strong> print region (the areas in pink) and choose an image. Change the garment color with the picker below.<p>
+                    <div id="colorpicker">
+                        <span
+                            style="background-image: url('grad-min.png');background-size: 100%;padding:0px; margin-bottom:0px;">
+                            <input type="range" min="0" max="359" value="0" id="HUE" style="width:100%;height:20px;">
+                        </span>
+                        <div height="100%">
+                            <canvas class="" id="cpcanvas" style="padding:0px"></canvas>
+                        </div>
+                    </div>
+
+        </aside>
+        <article class="content">
+            <div style="width:100%;">
+                <object id="svg-object" class="noselect " data="MaximumScreenPrintSizes.svg"
+                    type="image/svg+xml"></object>
+            </div>
+        </article>
+        <footer class="footer" style="display:none">
+            <input type="file" onchange="previewFile('front')" id="front-input" style="display:none">
+            <input type="file" onchange="previewFile('back')" id="back-input" style="display:none">
+        </footer>
+    </div>
+
+
+
     <!--[if lt IE 7]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
-    <input type="file" onchange="previewFile('front')" id="front-input" style="display:none">
-    <input type="file" onchange="previewFile('back')" id="back-input" style="display:none">
 
-    <div width="20%" id="colorpicker">
-        <span style="background-image: url('grad-min.png');background-size: 100%;padding:0px; margin-bottom:0px;">
-            <input type="range" min="0" max="359" value="0" id="HUE" style="width:100%;height:20px;">
-        </span>
-        <div>
-            <canvas class="" id="cpcanvas" width="300px" height="30px" style="padding:0px"></canvas>
-        </div>
-    </div>
-    <div style="width:80%;height:100vh;overflow-y: scroll;float:right;">
-        <object id="svg-object" class="noselect" data="MaximumScreenPrintSizes.svg" height="" width="100%"
-            type="image/svg+xml"></object>
-    </div>
-    <input id="sliderx" type="range" min="-2000" max="2000" value="0" oninput="moveSlider(this, 'x')" />
+
+
+
+    <!--<input id="sliderx" type="range" min="-2000" max="2000" value="0" oninput="moveSlider(this, 'x')" />
     <input id="slidery" type="range" min="-1000" max="1000" value="0" oninput="moveSlider(this, 'y')" />
     <input id="" type="range" min="0" max="5000" value="" oninput="moveSlider(this, 'width')" />
     <input id="" type="range" min="0" max="5000" value="" oninput="moveSlider(this, 'height')" />
     <input id="" type="range" min="0" max="5000" value="" oninput="moveSlider(this, 'boxwidth')" />
-    <input id="" type="range" min="0" max="5000" value="" oninput="moveSlider(this, 'boxheight')" />
+    <input id="" type="range" min="0" max="5000" value="" oninput="moveSlider(this, 'boxheight')" /> -->
 
     <script type="text/javascript">
         /*COMMENT 1
@@ -91,7 +208,12 @@
         */
 
         let svgObject = document.getElementById('svg-object')
-
+        const addListeners = (elArray) => {
+            return elArray[1].forEach(function (a) {
+                /* console.log(a) */
+                a.addEventListener("click", () => { document.getElementById(`${elArray[0]}-input`).click() }, false);
+            })
+        }
         svgObject.addEventListener('load', function () {
             let svgDoc = svgObject.contentDocument;
             let ifrontregion = svgDoc.querySelectorAll('.front');
@@ -100,44 +222,9 @@
             let pbackregion = svgDoc.querySelectorAll('#printregionsback>path');
             let frontregion = [...ifrontregion, ...pfrontregion]
             let backregion = [...ibackregion, ...pbackregion]
-            /* [['front', frontregion], ['back', backregion]].forEach((region) => {
-                region[1].forEach((regionEl) => {
-                    regionEl.addEventListener("click", () => { document.getElementById(`${region[0]}` - input).click() }, false);
-                })
-            }) */
-            backregion.forEach(function (a) {
-                console.log(a)
-                a.addEventListener("click", () => { document.getElementById('back-input').click() }, false);
-            })
-            frontregion.forEach(function (f) {
-                console.log(f)
-                f.addEventListener("click", () => { document.getElementById('front-input').click() }, false);
-            })
+            addListeners(['back', backregion])
+            addListeners(['front', frontregion])
         })
-
-
-        var moveSlider = function (slider, param) {
-
-            let svgDoc = svgObject.contentDocument;
-
-            var svgEl = svgDoc.getElementById("svg7109");
-            let vBoxVals = svgEl.getAttribute('viewBox').split(' ')
-            let boxwidth = svgEl.getAttribute('width')
-            let boxheight = svgEl.getAttribute('height')
-            let values = {
-                x: vBoxVals[0],
-                y: vBoxVals[1],
-                width: vBoxVals[2],
-                height: vBoxVals[3],
-                boxwidth: boxwidth,
-                boxheight: boxheight
-            }
-
-            values[param] = slider.value
-            svgEl.setAttribute('width', `${values['boxwidth']}`);
-            svgEl.setAttribute('height', `${values['boxheight']}`);
-            svgEl.setAttribute('viewBox', `${values['x']} ${values['y']} ${values['width']} ${values['height']}`);
-        }
 
         let insertImage = (region, base64img) => {
             svgObject.getSVGDocument().querySelector(`#printregions${region}`).style.display = 'none'
@@ -199,6 +286,7 @@
             a.fillStyle = b;
             a.fillRect(0, 0, a.canvas.width, a.canvas.height)
         }
+
         function CPGetPixel(a, c) {
             let b = cpcanvas.clientWidth / cpcanvas.width;
             b = cpctx.getImageData(a / b, c / b, 1, 1).data;
@@ -207,12 +295,14 @@
             let rgbString = `rgb(${b.join(',')})`
             return changeShirtColor(rgbString)
         }
+
         HUE.onchange = function () {
             drawCP(cpctx, this.value)
             console.log(this.value)
             let hueChange = `rgb(${hslToRgb(parseInt(this.value) / 359, 1, .5).join(',')})`
             return changeShirtColor(hueChange)
         }
+
         cpcanvas.onmousedown = function (a) {
             mousePos = getMousePos(cpcanvas, a);
             CPGetPixel(mousePos.x, mousePos.y);
@@ -227,6 +317,7 @@
                 cpcanvas.onmouseleave = function (b) { cancelMove(b) }
             }
         }
+
         function hslToRgb(h, s, l) {
             let r, g, b;
 
@@ -251,6 +342,129 @@
 
             return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
         }
+
+        /* var moveSlider = function (slider, param) {
+            let svgDoc = svgObject.contentDocument;
+            var svgEl = svgDoc.getElementById("svg7109");
+            let vBoxVals = svgEl.getAttribute('viewBox').split(' ')
+            let boxwidth = svgEl.getAttribute('width')
+            let boxheight = svgEl.getAttribute('height')
+            let values = {
+                x: vBoxVals[0],
+                y: vBoxVals[1],
+                width: vBoxVals[2],
+                height: vBoxVals[3],
+                boxwidth: boxwidth,
+                boxheight: boxheight
+            }
+            values[param] = slider.value
+            svgEl.setAttribute('width', `${values['boxwidth']}`);
+            svgEl.setAttribute('height', `${values['boxheight']}`);
+            svgEl.setAttribute('viewBox', `${values['x']} ${values['y']} ${values['width']} ${values['height']}`);
+        } */
+
+        /*  var ongoingTouches = [];
+         function startup() {
+             var el = document.getElementById("cpcanvas")
+             el.addEventListener("touchstart", handleStart, false);
+             el.addEventListener("touchend", handleEnd, false);
+             el.addEventListener("touchcancel", handleCancel, false);
+             el.addEventListener("touchmove", handleMove, false);
+             console.log("initialized.");
+         }
+         function handleStart(evt) {
+             evt.preventDefault();
+             console.log("touchstart.");
+             var el = document.getElementById("cpcanvas");
+             var ctx = el.getContext("2d");
+             var touches = evt.changedTouches;
+
+             for (var i = 0; i < touches.length; i++) {
+                 console.log("touchstart:" + i + "...");
+                 ongoingTouches.push(copyTouch(touches[i]));
+                 var color = colorForTouch(touches[i]);
+                 ctx.beginPath();
+                 ctx.arc(touches[i].pageX, touches[i].pageY, 4, 0, 2 * Math.PI, false);  // a circle at the start
+                 ctx.fillStyle = color;
+                 ctx.fill();
+                 console.log("touchstart:" + i + ".");
+             }
+         }
+
+         function handleMove(evt) {
+             evt.preventDefault();
+             var el = document.getElementById("cpcanvas")
+             var ctx = el.getContext("2d");
+             var touches = evt.changedTouches;
+
+             for (var i = 0; i < touches.length; i++) {
+                 var color = colorForTouch(touches[i]);
+                 var idx = ongoingTouchIndexById(touches[i].identifier);
+
+                 if (idx >= 0) {
+                     console.log("continuing touch " + idx);
+                     ctx.beginPath();
+                     console.log("ctx.moveTo(" + ongoingTouches[idx].pageX + ", " + ongoingTouches[idx].pageY + ");");
+                     ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
+                     console.log("ctx.lineTo(" + touches[i].pageX + ", " + touches[i].pageY + ");");
+                     ctx.lineTo(touches[i].pageX, touches[i].pageY);
+                     ctx.lineWidth = 4;
+                     ctx.strokeStyle = color;
+                     ctx.stroke();
+
+                     ongoingTouches.splice(idx, 1, copyTouch(touches[i]));  // swap in the new touch record
+                     console.log(".");
+                 } else {
+                     console.log("can't figure out which touch to continue");
+                 }
+             }
+         }
+         function handleEnd(evt) {
+             evt.preventDefault();
+             log("touchend");
+             var el = document.getElementById("cpcanvas")
+             var ctx = el.getContext("2d");
+             var touches = evt.changedTouches;
+
+             for (var i = 0; i < touches.length; i++) {
+                 var color = colorForTouch(touches[i]);
+                 var idx = ongoingTouchIndexById(touches[i].identifier);
+
+                 if (idx >= 0) {
+                     ctx.lineWidth = 4;
+                     ctx.fillStyle = color;
+                     ctx.beginPath();
+                     ctx.moveTo(ongoingTouches[idx].pageX, ongoingTouches[idx].pageY);
+                     ctx.lineTo(touches[i].pageX, touches[i].pageY);
+                     ctx.fillRect(touches[i].pageX - 4, touches[i].pageY - 4, 8, 8);  // and a square at the end
+                     ongoingTouches.splice(idx, 1);  // remove it; we're done
+                 } else {
+                     console.log("can't figure out which touch to end");
+                 }
+             }
+         }
+         function handleCancel(evt) {
+             evt.preventDefault();
+             console.log("touchcancel.");
+             var touches = evt.changedTouches;
+
+             for (var i = 0; i < touches.length; i++) {
+                 var idx = ongoingTouchIndexById(touches[i].identifier);
+                 ongoingTouches.splice(idx, 1);  // remove it; we're done
+             }
+         }
+         function colorForTouch(touch) {
+             var r = touch.identifier % 16;
+             var g = Math.floor(touch.identifier / 3) % 16;
+             var b = Math.floor(touch.identifier / 7) % 16;
+             r = r.toString(16); // make it a hex digit
+             g = g.toString(16); // make it a hex digit
+             b = b.toString(16); // make it a hex digit
+             var color = "#" + r + g + b;
+             console.log("color for touch with identifier " + touch.identifier + " = " + color);
+             return color;
+         }
+         startup() */
     </script>
 </body>
 
