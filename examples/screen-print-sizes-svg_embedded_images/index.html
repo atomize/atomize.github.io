@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Maximum Screen Print Sizing</title>
-    <meta name="description" content="Manipulating embedded images inside of an external SVG with Javascript & base64 encoding">
+    <meta name="description"
+        content="Manipulating embedded images inside of an external SVG with Javascript & base64 encoding">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon"
         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAO9AAADvQBThc/RQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAK0SURBVFiFvddNqFVVFAfw333v5mflB/ZUFIU0DUEhR0HZRFQEUaShJBY8k8SBQx2kTUKjQKf5MdCBQuAkSNCJghAhOPALFEIkjEw0U/OL53sO1rne8/Y9577nO/f1h8PlrL3XWf+991r/tS+jgx4cx0Pcxrd4Y5RitaCOCxhInr3/F4HlBcEH8BRj0sldo0Cgp8Q+ts3YK0zH+xUJLFK8A7dRG8r5MC5VJAAHk+D92FA0sZ6838fUDhD4Er9iBZ7jKE4Px/FrkSydwoc4h8e4hi1DOWwTWzaxA8Fn4IHWXNicjS/G2rQK7me/nTiGdXirwN4g8AGWpDnwT47AH0ME+Bgfid0ah0lZwDmYi1klfu9mv13oTgl8liPQDpNFUo0bYl4RpuBNUZItBP7GMc2dSDERS9E3wuANzM8I1FMCd7EDjzATX2k2kT+xSZxdP26Ilbwjmk6fyKFb4vj+VZ7172UE1LAnN7BU1O6PQjqf5cb6DZbuJwaX7D78lXuvZQuZUEBgp9jteTVRGp3AEq0qelGUW4pDQqjmjUYzyuN6iX2+WHitLvr0bCVa3QbPxLY3cKdgzs0S37m4J1dtyxR3sHZPWaUQpfa96ANFvndEMp+qQqChmim2impq53slW/3FThKo48gw/PqxMfO5nupAFRzQVNIU/+GyWPFPmq15fBUC+dtNrxCpFFeFst7DQiFAm7BSCNfdTpRhD34osJ8XidqLBXiB1UIpfxci9mlj8khy4EHmu69gbHf2zeWa6rkmG+vNs6x6BG/ji8R+Et8YpsJWOYIa1ht86RjA9uEGr0qgC6sS2xlx93utj4wU3fgksf3yuh+pQmCM1mvX2ZK5kzX/FU0TKjgo9kiqoEjfuwuC7y+Zv4tmFfRp31yK8BAn8Lm4LW0RtZ7iO/wsrnDjc/bf4CVFZu1lWeEHHAAAAABJRU5ErkJggg==" />
@@ -14,6 +16,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:400" rel="stylesheet" crossorigin>
     <link href="screen-print-sizes.css" rel="stylesheet">
 </head>
+
 <body>
     <div class="wrapper">
         <header class="header">
@@ -27,9 +30,11 @@
                             <input type="range" min="0" max="359" value="0" id="HUE">
                         </span>
                         <div id="canvas-wrapper">
-                            <canvas  id="cpcanvas"></canvas>
+                            <canvas id="cpcanvas"></canvas>
                         </div><br>
-                        <p><a href="https://github.com/atomize/atomize.github.io/tree/master/examples/screen-print-sizes-svg_embedded_images">Click here for source code and SVG file on Github</a></p>
+                        <p><a target="_blank" rel="noopener noreferrer"
+                                href="https://github.com/atomize/atomize.github.io/tree/master/examples/screen-print-sizes-svg_embedded_images">Click
+                                here for source code and SVG file on Github</a></p>
                     </div>
         </aside>
         <article class="content">
@@ -43,6 +48,7 @@
             <input type="file" onchange="loadImage('back')" id="back-input">
         </footer>
     </div>
-<script src="screen-print-sizes.js"></script>
+    <script src="screen-print-sizes.js"></script>
 </body>
+
 </html>
