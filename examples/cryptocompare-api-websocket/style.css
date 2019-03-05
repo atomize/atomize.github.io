@@ -1,0 +1,76 @@
+.inline {
+    display: inline-block;
+    vertical-align: top;
+    text-align: center;
+}
+
+.twenty5 {
+    width: 20vw;
+}
+
+.fifty {
+    max-width: 30%;
+}
+
+#wsoutput {
+    min-width: 200px;
+}
+
+#exchange-container {
+    min-width: 200px;
+    max-width: 400px;
+}
+
+#exchanges {
+    max-height: 200px;
+    overflow-y: scroll;
+}
+
+.exchange-item {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.grid-container-4 {
+    display: grid;
+    grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+    background-color: #2196F3;
+    grid-gap: 10px;
+    padding: 5px;
+}
+
+.grid-container-2 {
+    display: grid;
+    grid-template-columns: auto auto;
+    background-color: #2196F3;
+    grid-gap: 10px;
+    padding: 5px;
+}
+
+.grid-item {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 2px;
+    font-size: 10px;
+    text-align: center;
+}
+
+#wsoutput2 {
+    overflow-y: scroll;
+    max-height: 200px;
+}
+
+
+
+#container {
+    max-height: 600px;
+    overflow-y: scroll;
+}
+
+img:not([src]) {
+    visibility: hidden;
+}
+
+.hide {
+
+    display: none;
+}

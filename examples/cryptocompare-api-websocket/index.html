@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>CryptoCompare Example</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="dns-prefetch" href="//cryptocompare.com">
+    <link rel="preconnect" href="https://min-api.cryptocompare.com/data/all/coinlist" as="fetch" crossorigin>
+    <link rel="preconnect" href="https://min-api.cryptocompare.com/data/all/exchanges" as="fetch" crossorigin>
+    <link rel="preconnect" href="https://min-api.cryptocompare.com/data/all/cccaggexchanges" as="fetch" crossorigin>
+    <link rel='stylesheet' href="animate.min.css" />
+    <link rel="stylesheet" href="style.css" as="stylesheet">
+</head>
+
+<body>
+
+    <h2>CryptoCompare WebSocket CURRENT VALUE</h2>
+    <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <div class="grid-container-4">
+
+        <div class="grid-item">
+            <div class="grid-container-2">
+
+                <div class="grid-item">
+                    <label for="fsym">From Coin</label>
+                    <br>
+                    <select id="fsym">
+                        <option value="">Loading...</option>
+                    </select>
+                </div>
+
+                <div class="grid-item">
+                    <label for="tsym">To Coin</label>
+                    <br>
+                    <select id="tsym">
+                        <option value="">Loading...</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="grid-item">
+            Aggregated Exchanges
+            <br>
+            <div id="exchanges">Loading...</div>
+        </div>
+
+        <div class="grid-item">
+            WS Subscription
+            <br>
+            <div id="wsoutput2">
+            </div>
+        </div>
+
+        <div class="grid-item">
+            <button class="subscribe">Subscribe</button>
+            <button class="addsub">Add to Sub</button>
+            <button class="unsubscribe">Unsubscribe All</button>
+        </div>
+
+    </div>
+
+    <div class="grid-container-4" id="container">
+    </div>
+
+    <script src="socket.io.slim.js"></script>
+    <script src="lazyload.min.js" async defer></script>
+    <script src="ccc.js" async defer></script>
+
+
+</html>
