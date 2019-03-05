@@ -26,7 +26,7 @@ let insertImage = (region, base64img) => {
     svgObject.getSVGDocument().querySelectorAll(`.${region}`).forEach(x => x.setAttribute('xlink:href', base64img))
 }
 
-let previewFile = (designLocation) => {
+let loadImage = (designLocation) => {
     let file = document.getElementById(`${designLocation}-input`).files[0];
     let reader = new FileReader();
     reader.addEventListener("load", function () {
