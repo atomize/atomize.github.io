@@ -2,7 +2,9 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-h1, h2, h4 {
+h1,
+h2,
+h4 {
     margin: 0em !important;
 }
 
@@ -24,7 +26,7 @@ html {
 body {
     margin: 0vh auto !important;
     background-color: #1e1e1e;
-      color: #f8f8f8;
+    color: #f8f8f8;
 }
 
 @font-face {
@@ -34,81 +36,93 @@ body {
 
 blockquote {
     margin: 0px;
-  }
+}
 
-  li {
+li {
     margin-bottom: 5px;
-  }
+}
 
-.skills-col2{
+.skills-col2 {
     color: #e6db74;
-  }
-  .skills-col1{
+}
+
+.skills-col1 {
     color: #ae81ff;
-  }
-  .name {
+}
+
+.name {
     color: #66d9ef;
-  
-  }
- 
-  .position-title {
+
+}
+
+.position-title {
     color: #4ab6e0;
-  }
-  
-  .company-name {
+}
+
+.company-name {
     color: #b58900;
     font-weight: lighter;
-  }
-  
-  .city {
+}
+
+.city {
     color: #e6db74;
     font-weight: lighter;
-  }
-  .year, .mobile {
+}
+
+.year,
+.mobile {
     color: #abe674;
     font-weight: lighter;
-  }
-  .purple {
+}
+
+.purple {
     color: #ae81ff;
     font-weight: lighter;
-  }
-  
- 
-  
-  
-  
-  
-  
-  a {
+}
+
+
+
+
+
+
+
+a {
     color: #1e6ea7;
-  }
-  a:hover {
+}
+
+a:hover {
     color: #268bd2;
-  }
-  h1,
-  h2,
-  h3{
+}
+
+h1,
+h2,
+h3 {
     color: #b58900;
-  }
-  h4 {
+}
+
+h4 {
     color: #cde59b;
     margin-bottom: 10px;
-  }
-  h5 {
+}
+
+h5 {
     color: #ae81ff;
     font-weight: lighter;
     margin-top: 5px;
-  }
-  h2 {
+}
+
+h2 {
     border-bottom: 1px solid #003f50;
     line-height: 1.7em;
-  }
-  h6 {
+}
+
+h6 {
     color: #694f00;
-  }
-  hr {
+}
+
+hr {
     border: 1px solid #215968;
-  }
+}
 
 /*
 * Main grid element
@@ -125,7 +139,7 @@ blockquote {
     align-content: center;
     /*Use media query for mobile - make width 75vw*/
     background-color: transparent;
-    grid-template-areas: "name name" "skills story" "exper exper" "edu edu";
+    grid-template-areas: "name name""skills story""exper exper""edu edu";
     grid-auto-rows: auto;
     grid-auto-columns: 1fr 1fr;
 }
@@ -166,51 +180,57 @@ blockquote {
 }
 
 .job-title {
-/*     grid-area: name;
- */    grid-column: 1/span 3;
+    /*     grid-area: name;
+ */
+    grid-column: 1/span 3;
     font-size: 15px;
     grid-row: 2;
 }
 
 .email {
-    color:#ae81ff;
+    color: #ae81ff;
     display: grid;
     justify-content: center;
 
     grid-row: 1;
 }
+
 .username {
-    
-    color:#fd025e;
+
+    color: #fd025e;
 }
+
 .link1>.username {
-    
-   color:#fd025e;
-   grid-column: 2;
- }
+
+    color: #fd025e;
+    grid-column: 2;
+}
+
 .link1 {
-    color:#fb7aa9d2;
+    color: #fb7aa9d2;
     display: grid;
     justify-content: center;
     grid-column: 1;
     grid-row: 2;
-    margin-bottom:0px !important;
-   
-    
- }
+    margin-bottom: 0px !important;
 
- .link2>.berti {
-    
-    color:#fd025e;
-    grid-column:1;
-  }
+
+}
+
+.link2>.berti {
+
+    color: #fd025e;
+    grid-column: 1;
+}
+
 .link2 {
-    color:#fb7aa9d2;
+    color: #fb7aa9d2;
     display: inline-flex;
     justify-content: center;
-/*     grid-area: name;
- */    grid-column: 1;
-     grid-row: 3; 
+    /*     grid-area: name;
+ */
+    grid-column: 1;
+    grid-row: 3;
 }
 
 .contact-info {
@@ -221,9 +241,10 @@ blockquote {
     /* justify-content: space-evenly; */
 }
 
-.contact-info>span:not(:first-child), .contact-info>div>span:not(:first-child) {
+.contact-info>span:not(:first-child),
+.contact-info>div>span:not(:first-child) {
     margin-left: 7px;
-        margin-bottom: 0px;    
+    margin-bottom: 0px;
 }
 
 /**************/
@@ -247,7 +268,7 @@ blockquote {
 }
 
 .story-wrapper {
-    
+
     margin: 0px auto;
     display: grid;
     align-content: center;
@@ -322,7 +343,7 @@ blockquote {
 
 .section-row {
     border-bottom: 1px solid #fb7aa98c;
-  }
+}
 
 /******/
 
@@ -339,9 +360,11 @@ blockquote {
     margin: 0vh auto;
     width: 95%;
 }
+
 .otherexp>h4:not(:first-child) {
     margin-top: 10px !important;
 }
+
 /*****EDUCATION********/
 
 .edu {
@@ -365,36 +388,47 @@ blockquote {
     h4 {
         font-size: smaller;
     }
+
     .grid-wrapper {
-        grid-template-areas: "name" "story" "skills" "exper" "edu";
+        grid-template-areas: "name""story""skills""exper""edu";
         grid-auto-columns: 1fr;
     }
+
     .skills-wrapper {
         grid-auto-columns: max-content max-content fit-content !important;
     }
+
     .skills-col2 {
         grid-column-start: 1;
         grid-column-end: 2;
     }
+
     .skills-col1 {
         border-bottom: none;
     }
+
     .skills-col1:not(:first-child) {
         margin-top: 15px;
     }
+
     .story .story-wrapper>p {
         font-size: 2.8vw;
     }
+
     .sm {
         display: block;
     }
+
     .lg {
         display: none;
     }
-    .contact-info>span:not(:first-child), .contact-info>div>span:not(:first-child) {
+
+    .contact-info>span:not(:first-child),
+    .contact-info>div>span:not(:first-child) {
         margin-left: 2px !important;
         margin-bottom: 0px !important;
     }
+
     .position-title {
         font-weight: lighter !important;
     }
@@ -403,28 +437,37 @@ blockquote {
         padding-inline-start: 30px;
     }
 }
+
 .position-title {
     font-weight: bold;
 }
+
 @media screen and (max-width: 420px) {
     .story .story-wrapper>p {
         font-size: 3.8vw;
     }
-  .contact-info {
-      font-size: smaller;
-  }
-  .contact-info>span:not(:first-child), .contact-info>div>span:not(:first-child) {
-/*     margin-left: 2px !important;
- */          
+
+    .contact-info {
+        font-size: smaller;
+    }
+
+    .contact-info>span:not(:first-child),
+    .contact-info>div>span:not(:first-child) {
+        /*     margin-left: 2px !important;
+ */
+    }
 }
-}
+
 @media screen and (max-width: 385px) {
-   .name{
-       font-size:9vw;
-   }
+    .name {
+        font-size: 9vw;
+    }
 }
+
 .psu {
-    margin-inline-start :10px;
+    margin-inline-start: 10px;
+    padding-top: 0px !important;
+    position: absolute !important;
 }
 
 .ie {
