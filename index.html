@@ -359,6 +359,10 @@
         </div>
     </div>
     </div>
+    <script>
+        fetch('https://api.github.com/repos/atomize/atomize.github.io/contents/examples').then(res => res.json()).then(
+            contents => console.log(contents))
+    </script>
 </body>
 
 </html>
