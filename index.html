@@ -15,361 +15,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="icon"
         href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAO9AAADvQBThc/RQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAK0SURBVFiFvddNqFVVFAfw333v5mflB/ZUFIU0DUEhR0HZRFQEUaShJBY8k8SBQx2kTUKjQKf5MdCBQuAkSNCJghAhOPALFEIkjEw0U/OL53sO1rne8/Y9577nO/f1h8PlrL3XWf+991r/tS+jgx4cx0Pcxrd4Y5RitaCOCxhInr3/F4HlBcEH8BRj0sldo0Cgp8Q+ts3YK0zH+xUJLFK8A7dRG8r5MC5VJAAHk+D92FA0sZ6838fUDhD4Er9iBZ7jKE4Px/FrkSydwoc4h8e4hi1DOWwTWzaxA8Fn4IHWXNicjS/G2rQK7me/nTiGdXirwN4g8AGWpDnwT47AH0ME+Bgfid0ah0lZwDmYi1klfu9mv13oTgl8liPQDpNFUo0bYl4RpuBNUZItBP7GMc2dSDERS9E3wuANzM8I1FMCd7EDjzATX2k2kT+xSZxdP26Ilbwjmk6fyKFb4vj+VZ7172UE1LAnN7BU1O6PQjqf5cb6DZbuJwaX7D78lXuvZQuZUEBgp9jteTVRGp3AEq0qelGUW4pDQqjmjUYzyuN6iX2+WHitLvr0bCVa3QbPxLY3cKdgzs0S37m4J1dtyxR3sHZPWaUQpfa96ANFvndEMp+qQqChmim2impq53slW/3FThKo48gw/PqxMfO5nupAFRzQVNIU/+GyWPFPmq15fBUC+dtNrxCpFFeFst7DQiFAm7BSCNfdTpRhD34osJ8XidqLBXiB1UIpfxci9mlj8khy4EHmu69gbHf2zeWa6rkmG+vNs6x6BG/ji8R+Et8YpsJWOYIa1ht86RjA9uEGr0qgC6sS2xlx93utj4wU3fgksf3yuh+pQmCM1mvX2ZK5kzX/FU0TKjgo9kiqoEjfuwuC7y+Zv4tmFfRp31yK8BAn8Lm4LW0RtZ7iO/wsrnDjc/bf4CVFZu1lWeEHHAAAAABJRU5ErkJggg==" />
-    <link rel="preload" as="style" href="resume.min.css">
-    <link href="resume.min.css" rel="stylesheet">
-    <link rel="preconnect" href="fonts.googleapis.com" crossorigin>
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css?family=Montserrat:400,600" crossorigin>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600" rel="stylesheet" crossorigin>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js'></script>
+    <style>
+        li {
+            border: 1px solid black;
+            margin-block-start: 5px;
+        }
+
+        li>a {
+            text-decoration: none;
+        }
+
+        li>a>h1 {
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
 </head>
 
 <body>
-    <!--[if lt IE 7]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-    <div class="grid-wrapper">
-        <div class="info-header">
-            <h1 class="name">JONATHAN BERTI</h1>
-            <h2 class="job-title">FULL-STACK WEB DEVELOPER</h2>
-            <span class="contact-info">
-                <span class="email">jonathan.berti@gmail.com</span>
-                <span class="link1">github.com/atomize</span>
-                <span class="link2"><span class="berti">berti</span>.dev</span>
-                <div>
-                    <span class="city">Chicago, IL</span>
-                    <span class="mobile"><span class="purple">(</span>312<span class="purple">)</span>-884-1532</span>
-                </div>
-            </span>
-        </div>
+    <div>
+        <ul id="linkList">
 
-        <div class="story">
-            <div class="story-wrapper">
-                <p>
-                    I am a Full-Stack Developer with 9 years professional experience. Developing software is more of a
-                    life-long curiosity than it is a job, as I have been coding and using Linux since 1997.
-                    I create websites, applications, and back-end solutions, as well as design-deploy-manage the servers
-                    that host them. I have a penchant for modern Javascript and diving in to the Web API to make fast,
-                    compliant, and maintainable frontend experiences. On the backend, I like to solve data integration
-                    issues and design solutions to automate communication between applications and services. Across the
-                    whole stack, I write code and design systems with attenion to speed and scale.
-                </p>
-            </div>
-        </div>
-        <div class="skills">
-            <h3 class="skills-header">SKILLS</h3>
-            <div class="skills-wrapper">
-                <span class="section-row skills-col1">FRONTEND</span>
-                <span class="section-row skills-col2"></span>
-                <span class="section-row skills-col3"></span><br class="ie">
-                <span class="skills-col2">Languages</span><br class="ie">
-                <span class="skills-col3">JS/HTML/CSS (ES20xx , Google Apps Script , Typescript, HAML, Pug,
-                    Markdown, SASS, LESS)</span><br class="ie">
-                <span class="skills-col2">Frameworks</span><br class="ie">
-                <span class="skills-col3">Vue, React, Angular</span><br class="ie">
-
-                <span class="skills-col2">Utilities</span><br class="ie">
-                <span class="skills-col3">Webpack, Gulp, Grunt, Browserify, npm, yarn, Github, SVN, Mocha,
-                    Jasmine, Jest</span><br class="ie">
-
-                <span class="section-row skills-col1">BACKEND</span>
-                <span class="section-row skills-col2"></span>
-                <span class="section-row skills-col3"></span><br class="ie">
-                <span class="skills-col2">Languages</span><br class="ie">
-                <span class="skills-col3">Node, Python, PHP, Java, Go</span><br class="ie">
-                <span class="skills-col2">Frameworks</span><br class="ie">
-                <span class="skills-col3">Express, Flask, Django, Laravel, Spring</span><br class="ie">
-                <span class="skills-col2">Web Servers</span><br class="ie">
-                <span class="skills-col3">Apache, Nginx, lighthttpd</span><br class="ie">
-                <span class="skills-col2">Databases</span><br class="ie">
-                <span class="skills-col3">__SQL, MongoDB, Redis, ODBC/JDBC, FileMaker</span><br class="ie">
-                <span class="skills-col2">Scripting</span><br class="ie">
-                <span class="skills-col3">Bash + GNU Coreutils (AWK, Sed), Python, Perl</span><br class="ie">
-                <span class="skills-col2">Containers</span><br class="ie">
-                <span class="skills-col3">Docker, Kubernetes</span><br class="ie">
-                <span class="skills-col2">Protocols</span><br class="ie">
-                <span class="skills-col3">SSH, HTTP(S), FTP [SFTP/FTPS], TFTP, SMB/CIFS [AD/LDAP], NFS,
-                    AFP</span><br class="ie">
-                <span class="skills-col2">*NIX</span><br class="ie">
-                <span class="skills-col3">GNU/Linux (Debian, RedHat), BSD (Darwin [macOS/POSIX], FreeBSD)</span><br
-                    class="ie">
-
-                <span class="section-row skills-col1">CLOUD</span>
-                <span class="section-row skills-col2"></span>
-                <span class="section-row skills-col3"></span><br class="ie">
-                <span class="caws skills-col2">AWS</span><br class="ie">
-                <span class="caws skills-col3">EC2, VPC, EBS, S3, DynamoDB, RDS, Lambda, CloudFront, Route 53</span><br
-                    class="ie">
-                <span class="cgcp skills-col2">Google</span><br class="ie">
-                <span class="cgcp skills-col3">GCP, GSuite API</span><br class="ie">
-            </div>
-        </div>
-        <div class="exper">
-            <h3 class="exper-header">EXPERIENCE</h3>
-            <div class="experience-wrapper">
-                <h4
-                    id="-full-stack-developer-system-administrator-sharprint-decorated-apparel-chicago-il-2012-present-">
-                    <span class="position-title">Full-Stack Developer &amp; System Administrator</strong></span>
-                    <span class="lg">,</span><br class="sm">
-                    <span class="company-name"> <em>Sharprint Decorated Apparel</em></span><br class="sm"> <span
-                        class="purple">(</span><span class="city">Chicago, IL</span><span class="purple">)</span> -
-                    <span class="year"> 2012-Present</span>
-                </h4>
-                <blockquote>
-                    <h5
-                        id="sharprint-is-a-manufacturer-of-decorated-apparel-that-has-been-operating-in-chicago-for-over-25-years-in-addition-to-large-volume-screen-printing-embroidery-and-dtg-departments-sharprint-does-in-house-art-marketing-and-shipping-i-am-the-sole-developer-admin-and-contact-for-all-of-sharprint-s-techinical-needs-across-departments-">
-                        Sharprint is a manufacturer of decorated apparel that has been
-                        operating in Chicago for over 25 years. In addition to large-volume
-                        screen printing, embroidery, and DTG departments, Sharprint does
-                        in-house art, marketing, and shipping.
-                        <!-- I am the sole developer, admin, and contact for all of Sharprint's techinical needs across departments. -->
-                    </h5>
-                    <ul>
-                        <li>
-                            Collaborated with Threadless to create a 2-way work order API for
-                            DTG printing and drop shipment automation. This included an
-                            internal front-end interface for processing orders, managing
-                            artwork, pulling inventory, and printing shipping labels, allowing
-                            Sharprint to take on thousands of fulfillment orders at a time.
-                            Previously we did not provide this service at all.
-                        </li>
-                        <li>
-                            Worked with UPS and FedEX on custom database integration to
-                            accomodate large fulfillment orders and streamline batch label
-                            printing
-                        </li>
-                        <li>
-                            Made numerous case-specific solutions for processing vector art in
-                            an automated way so files could be properly interpretted by
-                            specialized printing equipment/RIP server software
-                        </li>
-                        <li>
-                            Created a custom, compliant, client facing payment gateway in the
-                            cloud for credit card processing using PHP &amp; the Paypal API.
-                            It allows secure client payments on the web and provides a PDF
-                            receipt
-                        </li>
-                        <li>
-                            Developed an internal tool using JS and SVG that allowed for rapid
-                            demonstration of how client artwork might look given various
-                            screen printing regions on a garment
-                        </li>
-                        <li>
-                            Developed a business intelligence portal for tracking department
-                            metrics using Google Apps Script in conjunction with various
-                            GSuite APIs (Sheets, Docs, Gmail)
-                        </li>
-                        <li>
-                            Created various internal frontend and backend systems to generate
-                            bulk order import files in the custom format required by our
-                            proprietary database - relieving the need to hire temporary staff
-                            for data entry upon large surprise rush orders
-                        </li>
-                        <li>
-                            Overhauled the internal network for use of open-source software
-                            and integration of cloud resources
-                            <ul>
-                                <li>
-                                    Virtualized the local database server and integrated automated
-                                    cloud backup
-                                </li>
-                                <li>
-                                    Setup and managed internal/external access and utilies for a
-                                    file sharing server dedicated to client vector art used for
-                                    apparel production
-                                </li>
-                                <li>
-                                    Setup and integrated various cloud services between AWS and
-                                    Google Cloud Platform
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </blockquote>
-                <h4 id="-frontend-developer-profittrailer-b-v-remote-2018-present-">
-                    <span class="position-title">Frontend Developer</span><span class="lg">,</span><br class="sm">
-                    <span class="company-name"> <em>ProfitTrailer B.V.</em></span><br class="sm"> <span
-                        class="purple">(</span><span class="city">Remote</span><span class="purple">)</span> -
-                    <span class="year"> <strong>2018-Present</strong></span>
-                </h4>
-                <blockquote>
-                    <h5
-                        id="profittrailer-is-a-commercially-available-cryptocurrency-trading-bot-with-thousands-of-users-all-over-the-world-it-is-a-java-application-that-uses-spring-framework-with-a-custom-js-html-css-frontend-">
-                        ProfitTrailer is a commercially available cryptocurrency trading bot
-                        with thousands of users all over the world. It is a Java application
-                        that uses Spring framework with a custom JS/HTML/CSS frontend.
-                    </h5>
-                    <ul>
-                        <li>
-                            Added a user interface for changing the large array of settings
-                            and parameters available on the backend (V2.1). This opened up
-                            accessiblilty of application to an entire new skill-level of user.
-                            Previously, this was done by editing multiple text files with
-                            little room for error.
-                        </li>
-                        <li>
-                            Developed an automated running demo of my frontend development
-                            progress using Github webhooks and a tiny Go based backend
-                            solution
-                        </li>
-                        <li>
-                            Created the working PoC for natively integrating one of PT&#39;s
-                            official 3rd party extensions, which involved refactoring the
-                            entire frontend codebase for migration to Vue.js
-                        </li>
-                        <li>
-                            When syntax of the text based settings file changed (v2.0), I
-                            built a settings file converter in Javascript that used regular
-                            expressions and provided an instant preview of the new file
-                        </li>
-                        <li>
-                            Worked with the backend to develop and debug a new private/public
-                            API scheme for the application
-                        </li>
-                        <li>
-                            Consulted the backend on implementing data persistence in their
-                            Spring application
-                        </li>
-                    </ul>
-                </blockquote>
-                <h4 id="-full-stack-web-mobile-developer-apollo-matrix-remote-mclean-va-2011-2012-">
-                    <span class="position-title">Full-Stack Web/Mobile Developer</span><span class="lg">,</span><br
-                        class="sm">
-                    <span class="company-name"> <em>Apollo Matrix</em></span><br class="sm"> <span
-                        class="purple">(</span><span class="city">Remote/McLean, VA</span><span class="purple">)</span>
-                    -
-                    <span class="year"> <strong>2011-2012</strong></span>
-                </h4>
-                <blockquote>
-                    <h5
-                        id="apollo-matrix-was-a-startup-when-i-joined-the-team-at-the-time-they-operated-as-a-custom-development-shop-for-mobile-and-web-software-as-well-as-a-provider-of-specialized-data-and-content-solutions-for-the-web-using-drupal-">
-                        Apollo Matrix was a startup when I joined the team. At the time they
-                        operated as a custom development shop for mobile and web software,
-                        as well as a provider of specialized data and content solutions for
-                        the web using Drupal.
-                    </h5>
-                    <ul>
-                        <li>
-                            Developed and contributed to numerous apps that became available
-                            for Android and iOS
-                            <ul>
-                                <li>
-                                    Led development on an iPad application used by Nikon @ CES
-                                    2012 to showcase their new line of cameras - convinced the
-                                    client that we should code the app using only front-end web
-                                    technologies and make it native using Phonegap, which at the
-                                    time was a new technology. They complied, the app compiled, it
-                                    went well.
-                                </li>
-                                <li>
-                                    Contributed to 8coupons.com mobile app, which is still
-                                    available on iOS and Android.
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            Made a working PoC frontend web application that allowed a user to
-                            provide custom images that created the UI skin for an iOS
-                            application. It also provisioned a usable demo of iOS source code
-                            that could be customized, compiled and submitted to the App Store.
-                            This feat required the integration of various disparate systems
-                            and was accomplished using many languages across both Linux and
-                            Mac servers
-                        </li>
-                        <li>
-                            Automated deployments of Drupal to be used as a headless CMS for
-                            mobile applications
-                        </li>
-                    </ul>
-                </blockquote>
-                <h4 id="-system-administration-network-consultant-azavar-now-localgov-chicago-il-2015-2018-">
-                    <span class="position-title">System Administration/Network Consultant</span><span
-                        class="lg">,</span><br class="sm">
-                    <span class="company-name"><em>Azavar</em></span><br class="sm"> <span class="purple">(</span><span
-                        class="city">Chicago, IL</span><span class="purple">)</span> -
-                    <span class="year"><strong>2015-2018</strong></span>
-
-                </h4>
-                <blockquote>
-                    <h5
-                        id="azavar-was-a-custom-development-shop-that-recently-assumed-the-name-of-its-now-sole-and-flagship-product-localgov-over-the-years-i-have-provided-periodic-system-administration-and-consultation-support-to-azavar-as-they-tripled-their-workforce-and-grew-in-to-a-new-location-">
-                        Azavar was a custom development shop that recently assumed the name
-                        of its now sole and flagship product, LocalGov. Over the years I
-                        have provided periodic system administration and consultation
-                        support to Azavar as they tripled their workforce and grew in to a
-                        new location.
-                    </h5>
-                    <ul>
-                        <li>
-                            Consulted on equipment purchasing, network and server design
-                            during company relocation
-                        </li>
-                        <li>
-                            Helped set up direct, secure connections between on-site resources
-                            with AWS services
-                        </li>
-                        <li>
-                            Provided emergency support during critical equipment failure
-                            (overseeing RAID recovery, etc.)
-                        </li>
-                    </ul>
-                </blockquote>
-                <div class="otherexp">
-                    <h4
-                        id="-program-director-k-3-educator-chicago-public-schools-affiliated-npos-chicago-il-2009-2011-">
-                        <span class="position-title">Program Director &amp; K-3 Educator</span><span
-                            class="lg">,</span><br class="sm">
-                        <span class="company-name"><em>Chicago Public Schools/affiliated NPOs</em></span><br class="sm">
-                        <span class="purple">(</span><span class="city">Chicago, IL</span><span class="purple">)</span>
-                        -
-                        <span class="year"><strong>2009-2011</strong></span>
-                    </h4>
-                    <h4 id="-field-biologist-oregon-state-university-corvallis-or-sheldon-nwr-nv-2007-2009-">
-                        <span class="position-title">Field Biologist</span><span class="lg">,</span><br class="sm">
-                        <span class="company-name"><em>Oregon State University</em></span><br class="sm"> <span
-                            class="purple">(</span><span class="city">Corvallis, OR/Sheldon NWR, NV</span><span
-                            class="purple">)</span> -
-                        <span class="year"><strong>2007-2009</strong></span>
-                    </h4>
-                </div>
-            </div>
-        </div>
-        <div class="edu">
-            <h3 class="edu-header">
-                <hr />EDUCATION<img class="psu"
-                    src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+PHN2ZyB4bWxuczpkYz0iaHR0cDovL3B1cmwub3JnL2RjL2VsZW1lbnRzLzEuMS8iIHhtbG5zOmNjPSJodHRwOi8vY3JlYXRpdmVjb21tb25zLm9yZy9ucyMiIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIiBpZD0ic3ZnMTg2MTYiIHdpZHRoPSIzNS4zMDciIGhlaWdodD0iMjUiIHNvZGlwb2RpOmRvY25hbWU9IkxvZ28gUGVubl9TdGF0ZS5zdmciIGlua3NjYXBlOnZlcnNpb249IjAuOTIuMyAoMjQwNTU0NiwgMjAxOC0wMy0xMSkiIGlua3NjYXBlOmV4cG9ydC1maWxlbmFtZT0iL2hvbWUvYmVydGkvRG93bmxvYWRzL0xvZ28gUGVubl9TdGF0ZS5wbmcucG5nIiBpbmtzY2FwZTpleHBvcnQteGRwaT0iOTcuMjMiIGlua3NjYXBlOmV4cG9ydC15ZHBpPSI5Ny4yMyI+PG1ldGFkYXRhIGlkPSJtZXRhZGF0YTE4NjIyIj48cmRmOlJERj48Y2M6V29yaz48ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD48ZGM6dHlwZSByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIi8+PGRjOnRpdGxlLz48L2NjOldvcms+PC9yZGY6UkRGPjwvbWV0YWRhdGE+PHNvZGlwb2RpOm5hbWVkdmlldyBwYWdlY29sb3I9IiNmZmZmZmYiIGJvcmRlcmNvbG9yPSIjNjY2NjY2IiBib3JkZXJvcGFjaXR5PSIxIiBvYmplY3R0b2xlcmFuY2U9IjEwIiBncmlkdG9sZXJhbmNlPSIxMCIgZ3VpZGV0b2xlcmFuY2U9IjEwIiBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMCIgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxNjgwIiBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSI5OTAiIGlkPSJuYW1lZHZpZXcxODYxOCIgc2hvd2dyaWQ9ImZhbHNlIiBpbmtzY2FwZTp6b29tPSIzOC40NjciIGlua3NjYXBlOmN4PSI2LjQ2MSIgaW5rc2NhcGU6Y3k9IjUuNTQxIiBpbmtzY2FwZTp3aW5kb3cteD0iMCIgaW5rc2NhcGU6d2luZG93LXk9IjAiIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9ImxheWVyMSIvPjxnIGlua3NjYXBlOmdyb3VwbW9kZT0ibGF5ZXIiIGlkPSJsYXllcjEiIGlua3NjYXBlOmxhYmVsPSJMYXllciAxIiBzdHlsZT0iZGlzcGxheTppbmxpbmU7b3BhY2l0eTouNjUiPjxlbGxpcHNlIHN0eWxlPSJkaXNwbGF5OmlubGluZTtvcGFjaXR5OjE7ZmlsbDojZmZmO2ZpbGwtb3BhY2l0eToxO2ZpbGwtcnVsZTpub256ZXJvO3N0cm9rZS13aWR0aDouODg4NjkxNiIgaWQ9InBhdGg5MjgiIGN4PSIxNy4zODYiIGN5PSIxMy4xMzciIHJ4PSIxNy4wOTkiIHJ5PSIxMS42ODEiLz48cGF0aCBzdHlsZT0iZGlzcGxheTppbmxpbmU7ZmlsbDojZmZmO2ZpbGwtb3BhY2l0eToxO3N0cm9rZS13aWR0aDouMDM5OTI3NzUiIGQ9Ik0xNS40NzQuNjUzYy4xNC4wMDIuMy4wNS41MDQuMTQ4LjUyOC4yNTMgMS4wMTIuODE1IDEuNzcgMi4wNTYuMTg1LjMwMy4xODUuMzAzLjUxNC4zNTIgMS40OTUuMjI3IDUuMjk2IDEuNDE4IDYuNTkgMi4wNjYuNTkxLjI5Ni43MDUuMzk4IDEuMDg3Ljk3Ni4xODguMjg0LjQ0NS42Mi41Ny43NDYuMjA5LjIxLjkxOC43MTQgMi42MjQgMS44NjcuMzUxLjIzNy44MzUuNTY3IDEuMDc2LjczMiAxLjY2OCAxLjE1IDIuNTM3IDIuMjEyIDIuNTM3IDMuMTA0IDAgLjU0LS4yNDQgMS4zMTUtLjU0IDEuNzE1LS4zMzMuNDUtMS4wNjUgMS4wMDItMi4xMTUgMS41OTVsLS43NzkuNDM5Yy0xLjI0LjY5OS0zLjcwNyAxLjkyNy00LjQ5MSAyLjIzNy0uMjY0LjEwNC0uNDg1LjE5NC0uNDkxLjItLjAwNi4wMDQuMDEuMDU2LjAzNi4xMTMuMDU5LjEzLjAyMy4xMzcgMS4wNTMtLjIzN2E2Ny43OSA2Ny43OSAwIDAgMCAyLjQxNi0uOTE0YzEuODMzLS43MjQgMi4wMDEtLjc4OCAyLjAxOC0uNzcxLjAzMy4wMzItLjE0My41OTItLjM0NCAxLjA5OC0uNTI2IDEuMzItMS4xOCAyLjI4LTEuNzI4IDIuNTM4LS40NTcuMjE1LS41OTMuMjQtMS4xOTkuMjE4LS43NTUtLjAyNy0xLjgwNC0uMTk1LTQuNjk5LS43NTQtLjg2LS4xNjYtLjg2LS4xNjYtMS40MTcuMDE2LTEuODI1LjU5Ny0zLjUgMS4wMjEtNC44NjkgMS4yMzMtLjY3My4xMDQtMi4xNDEuMTM4LTIuNTU2LjA1OS0uNjAxLS4xMTUtMS4wOS0uMzgyLTEuNTU0LS44NDYtLjUzNS0uNTM1LS44NjktMS4yNDYtMS4wMDItMi4xMy0uMDYyLS40MDgtLjA3OC0uOTYzLS4wMjgtLjk2LjAxNi4wMDEuMTAxLjEwNS4xODkuMjMuMjUyLjM2IDEgMS4wODQgMS4zNzggMS4zMzMuNjcyLjQ0MyAxLjE1NS42MzggMi4wMzYuODI0IDEuMTI4LjIzNyAxLjQxOC4yNjUgMi44MzUuMjY1IDEuNDQ2IDAgMS43NTMtLjAzIDIuODk1LS4yODMuODgtLjE5NSAxLjUzNC0uNDEzIDMuMzM0LTEuMTEzIDIuOTEtMS4xMzMgNC41OS0yLjE1MyA1LjE4NS0zLjE0OC4yMzUtLjM5My4yNjQtLjUxMy4yNjMtMS4wODQgMC0uNjE2LS4wNTgtLjg2OC0uMzItMS40MTUtLjQxNy0uODY3LTEuMDk4LTEuNTc2LTIuMTMxLTIuMjE1LS44MjctLjUxMS0xLjk5LS45NzktMy4xODUtMS4yOC0uNTItLjEzMS0xLjcyNi0uMzctMi4wMzgtLjQwNC0uMTM4LS4wMTUtLjI1LS4wMzgtLjI1LS4wNTIuMDAxLS4wMTMuNzMyLS4zNyAxLjYyNS0uNzkyIDEuODQtLjg3IDEuNjczLS44MzQgMS44NzktLjQxNC4wOTMuMTkuMTEuMjczLjExLjU2MyAwIC4xODYtLjAxNS4zODYtLjAzNC40NDQtLjAyOS4wOTMtLjAyLjEwNy4wOC4xMzEuMzY1LjA4NyAxLjM5NS40MjYgMS45MDIuNjI3IDIuMTA3LjgzMyAzLjQ5NCAxLjg4OCA0LjExMyAzLjEzLjI2Ny41MzYuMzI2LjgwOC4zMjYgMS41MDcgMCAuMzI0LjAxLjU5LjAyNC41OS4wNzUtLjAwMS40MTMtLjI2Ni42MTYtLjQ4Ni4zMDEtLjMyNS41MTMtLjY4NC42NC0xLjA4NC4yNDctLjc4LjAyOS0xLjQzLS43MzctMi4xODgtLjU2LS41NTYtMS4wODMtLjkxOC0zLjU5Ni0yLjQ5Ni0xLjMzNS0uODM3LTEuNDg2LS45NjktMS45ODQtMS43MjUtLjMyLS40ODgtLjU4Ni0uNzQzLS44NTUtLjgyNC0uNTk0LS4xNzktMS4wOTUtLjIzMi0yLjM3Mi0uMjUxLTEuNDA2LS4wMjEtMi4wOTUuMDI3LTMuMzM0LjIzMy0yLjI5NC4zODEtNC41NjcgMS4yNTItNi4xOTkgMi4zNzQtLjMxLjIxMy0uMzEuMjEzLS4zMS4wMDQgMC0uNjMuMzEyLTIuMzM1LjY1Ny0zLjYuNTk4LTIuMTg1IDEuMjg2LTMuNyAxLjg5Mi00LjE2YS41OTUuNTk1IDAgMCAxIC4zODMtLjEzN3oiIGlkPSJwYXRoODg5IiBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIi8+PHBhdGggaWQ9InBhdGgxOTE2OSIgc3R5bGU9ImZpbGw6IzAwNGJlMDtmaWxsLW9wYWNpdHk6MTtzdHJva2Utd2lkdGg6LjAzOTkyNzc1IiBkPSJNMTcuNjU0IDBjLS44ODUgMC0xLjc3LjAyNC0yLjIzNi4wNzItMy4wMzUuMzE0LTUuNTY2IDEuMDE0LTcuOTMzIDIuMTkzLTIuMjU4IDEuMTI1LTQuMTcxIDIuNjY3LTUuNDU4IDQuNC0xLjU5IDIuMTQtMi4yNSA0LjQ3OC0xLjk2IDYuOTUuMjQ1IDIuMDk3IDEuMzE0IDQuMjEgMyA1LjkyNS40NTMuNDYzLjQ1My40NjMuMjE0LjA1NC0uODk2LTEuNTI3LTEuNDIzLTIuOTQ1LTEuNzA0LTQuNTgyLS4xLS41ODQtLjEtMi4wMzggMC0yLjYzNS4yOC0xLjY2OS45NC0zLjE0NCAyLjAxMy00LjQ5Mi4zNzctLjQ3NSAxLjM4NC0xLjQ4IDEuODg2LTEuODgyIDEuNTIzLTEuMjIzIDMuNDgzLTIuMjA2IDUuMTUtMi41ODQuNTc4LS4xMyAxLjE5Ny0uMjIxIDEuMjM1LS4xOC4wMTMuMDE0LjAwNS4wMzItLjAxNy4wNC0uMDgxLjAzLTEuMjUxLjc5LTEuNjYyIDEuMDc4LTMuNDgzIDIuNDQ1LTUuNjYzIDUuNzE2LTYuMDI1IDkuMDM4YTEyLjU2IDEyLjU2IDAgMCAwIC4wMTcgMi4yNzZjLjQ5OCAzLjk4OCAzLjYyMiA3LjM2NSA3Ljk3NCA4LjYxOC45MzguMjcgMy4wODYuNjA4IDQuNDQ3LjcuNTE1LjAzNCAyLjc0LS4wMTUgMy4zMzQtLjA3NSAyLjk1LS4yOTQgNS41MzMtMS4wMSA3LjkwMy0yLjE5MSAyLjI0Ny0xLjEyIDQuMTY0LTIuNjY1IDUuNDQ4LTQuMzk1IDEuNTktMi4xNCAyLjI1LTQuNDc4IDEuOTYtNi45NDktLjQyMi0zLjYxNC0zLjE4MS03LjAwNC03LjQxOC05LjExNEMyNS40NTUgMS4wODYgMjIuOTI0LjM4NiAxOS44ODkuMDcyIDE5LjQyMy4wMjQgMTguNTQgMCAxNy42NTQgMHptLTIuMTguNjUzYy4xNC4wMDIuMy4wNS41MDQuMTQ4LjUyOC4yNTMgMS4wMTIuODE1IDEuNzcgMi4wNTYuMTg1LjMwMy4xODUuMzAzLjUxNC4zNTIgMS40OTUuMjI3IDUuMjk2IDEuNDE4IDYuNTkgMi4wNjYuNTkxLjI5Ni43MDUuMzk4IDEuMDg3Ljk3Ni4xODguMjg0LjQ0NS42Mi41Ny43NDYuMjA5LjIxLjkxOC43MTQgMi42MjQgMS44NjcuMzUxLjIzNy44MzUuNTY3IDEuMDc2LjczMiAxLjY2OCAxLjE1IDIuNTM3IDIuMjEyIDIuNTM3IDMuMTA0IDAgLjU0LS4yNDQgMS4zMTUtLjU0IDEuNzE1LS4zMzMuNDUtMS4wNjUgMS4wMDItMi4xMTUgMS41OTVsLS43NzkuNDM5Yy0xLjI0LjY5OS0zLjcwNyAxLjkyNy00LjQ5MSAyLjIzNy0uMjY0LjEwNC0uNDg1LjE5NC0uNDkxLjItLjAwNi4wMDQuMDEuMDU2LjAzNi4xMTMuMDU5LjEzLjAyMy4xMzcgMS4wNTMtLjIzN2E2Ny43OSA2Ny43OSAwIDAgMCAyLjQxNi0uOTE0YzEuODMzLS43MjQgMi4wMDEtLjc4OCAyLjAxOC0uNzcxLjAzMy4wMzItLjE0My41OTItLjM0NCAxLjA5OC0uNTI2IDEuMzItMS4xOCAyLjI4LTEuNzI4IDIuNTM4LS40NTcuMjE1LS41OTMuMjQtMS4xOTkuMjE4LS43NTUtLjAyNy0xLjgwNC0uMTk1LTQuNjk5LS43NTQtLjg2LS4xNjYtLjg2LS4xNjYtMS40MTcuMDE2LTEuODI1LjU5Ny0zLjUgMS4wMjEtNC44NjkgMS4yMzMtLjY3My4xMDQtMi4xNDEuMTM4LTIuNTU2LjA1OS0uNjAxLS4xMTUtMS4wOS0uMzgyLTEuNTU0LS44NDYtLjUzNS0uNTM1LS44NjktMS4yNDYtMS4wMDItMi4xMy0uMDYyLS40MDgtLjA3OC0uOTYzLS4wMjgtLjk2LjAxNi4wMDEuMTAxLjEwNS4xODkuMjMuMjUyLjM2IDEgMS4wODQgMS4zNzggMS4zMzMuNjcyLjQ0MyAxLjE1NS42MzggMi4wMzYuODI0IDEuMTI4LjIzNyAxLjQxOC4yNjUgMi44MzUuMjY1IDEuNDQ2IDAgMS43NTMtLjAzIDIuODk1LS4yODMuODgtLjE5NSAxLjUzNC0uNDEzIDMuMzM0LTEuMTEzIDIuOTEtMS4xMzMgNC41OS0yLjE1MyA1LjE4NS0zLjE0OC4yMzUtLjM5My4yNjQtLjUxMy4yNjMtMS4wODQgMC0uNjE2LS4wNTgtLjg2OC0uMzItMS40MTUtLjQxNy0uODY3LTEuMDk4LTEuNTc2LTIuMTMxLTIuMjE1LS44MjctLjUxMS0xLjk5LS45NzktMy4xODUtMS4yOC0uNTItLjEzMS0xLjcyNi0uMzctMi4wMzgtLjQwNC0uMTM4LS4wMTUtLjI1LS4wMzgtLjI1LS4wNTIuMDAxLS4wMTMuNzMyLS4zNyAxLjYyNS0uNzkyIDEuODQtLjg3IDEuNjczLS44MzQgMS44NzktLjQxNC4wOTMuMTkuMTEuMjczLjExLjU2MyAwIC4xODYtLjAxNS4zODYtLjAzNC40NDQtLjAyOS4wOTMtLjAyLjEwNy4wOC4xMzEuMzY1LjA4NyAxLjM5NS40MjYgMS45MDIuNjI3IDIuMTA3LjgzMyAzLjQ5NCAxLjg4OCA0LjExMyAzLjEzLjI2Ny41MzYuMzI2LjgwOC4zMjYgMS41MDcgMCAuMzI0LjAxLjU5LjAyNC41OS4wNzUtLjAwMS40MTMtLjI2Ni42MTYtLjQ4Ni4zMDEtLjMyNS41MTMtLjY4NC42NC0xLjA4NC4yNDctLjc4LjAyOS0xLjQzLS43MzctMi4xODgtLjU2LS41NTYtMS4wODMtLjkxOC0zLjU5Ni0yLjQ5Ni0xLjMzNS0uODM3LTEuNDg2LS45NjktMS45ODQtMS43MjUtLjMyLS40ODgtLjU4Ni0uNzQzLS44NTUtLjgyNC0uNTk0LS4xNzktMS4wOTUtLjIzMi0yLjM3Mi0uMjUxLTEuNDA2LS4wMjEtMi4wOTUuMDI3LTMuMzM0LjIzMy0yLjI5NC4zODEtNC41NjcgMS4yNTItNi4xOTkgMi4zNzQtLjMxLjIxMy0uMzEuMjEzLS4zMS4wMDQgMC0uNjMuMzEyLTIuMzM1LjY1Ny0zLjYuNTk4LTIuMTg1IDEuMjg2LTMuNyAxLjg5Mi00LjE2YS41OTUuNTk1IDAgMCAxIC4zODMtLjEzN3ptLjE3NC43NjljLS4yNDEtLjAwOS0uNDUyLjI1Mi0uNzM4LjgxOC0uNTg4IDEuMTYtMS4wNjEgMi43NjItMS4zOSA0LjcwNS0uMDI2LjE1LS4wMjUuMTQ4LjM5NS0uNDY3IDEuMDc3LTEuNTc3IDIuMzQxLTIuODggMy4xMDUtMy4yMDEuMTItLjA1LjEyLS4wNS0uMDM1LS4zNDZhNS4zNjQgNS4zNjQgMCAwIDAtLjc2Ny0xLjEyM2MtLjIyNy0uMjQ4LS40MDUtLjM4LS41Ny0uMzg2eiIgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgaW5rc2NhcGU6ZXhwb3J0LWZpbGVuYW1lPSIvaG9tZS9iZXJ0aS9QaWN0dXJlcy9wc3UucG5nIiBpbmtzY2FwZTpleHBvcnQteGRwaT0iOTcuMjMiIGlua3NjYXBlOmV4cG9ydC15ZHBpPSI5Ny4yMyIvPjwvZz48L3N2Zz4="
-                    </h3> <div class="edu-wrapper">
-                <span id="-penn-state-university-state-college-pa-2002-2007">
-                    <span class="position-title">Penn State University</span> <br class="sm"><span
-                        class="purple">(</span><span class="city">State College, PA</span><span class="purple">)</span>
-                    -
-                    <span class="year">2002-2007</span>
-                    <blockquote>
-                        <ul>
-                            <li>
-                                <span class="purple"><strong><em>BSc</em></strong></span>, Biological Psychology
-                            </li>
-                            <li>
-                                <span class="purple"><strong><em>BA</em></strong></span>, Philosophy
-                            </li>
-                            <li>
-                                <span class="purple"><strong><em>Minor</em></strong></span>, Classics
-                            </li>
-                        </ul>
-                    </blockquote>
-                </span>
-        </div>
-    </div>
+        </ul>
     </div>
     <script>
+        const converter = new showdown.Converter()
+        console.log(converter)
         const dirFilter = (response) => {
             if (response.type === 'dir') {
-                return response.path
+                return `${response.path}`
             } else {
                 return false
             }
 
         }
-        fetch('https://api.github.com/repos/atomize/atomize.github.io/contents/examples').then(res => res.json()).then(
-            contents => console.log(contents.filter(dirFilter)))
+        const createLinkElement = (linkArray) => {
+            return linkArray.map(link => {
+                var req = new XMLHttpRequest();
+                req.open('GET', link + '/README.md', false);
+                req.send(null);
+                var readme = req.response;
+                console.log(converter.makeHtml(readme))
+                return `<li><a href="${link}">${converter.makeHtml(readme)}</a></li>`
+
+            })
+        }
+
+        var exLinks = fetch('https://api.github.com/repos/atomize/atomize.github.io/contents/examples')
+            .then(res => {
+                return res.json()
+            })
+            .then(contents => {
+                return contents.map(dirFilter)
+            })
+        var list = document.getElementById('linkList')
+        exLinks.then(links => createLinkElement(links)).then(links => {
+            links = links.join('')
+            list.innerHTML = links
+        })
     </script>
 </body>
 
