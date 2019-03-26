@@ -360,8 +360,16 @@
     </div>
     </div>
     <script>
+        const dirFilter = (response) => {
+            if (response.type === 'dir') {
+                return response.path
+            } else {
+                return false
+            }
+
+        }
         fetch('https://api.github.com/repos/atomize/atomize.github.io/contents/examples').then(res => res.json()).then(
-            contents => console.log(contents))
+            contents => console.log(contents.filter(dirFilter)))
     </script>
 </body>
 
