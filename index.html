@@ -80,7 +80,7 @@
         var list = document.getElementById('linkList')
         const createLinkElement = (linkArray) => {
             let tmplink = ''
-            let returnArr = []
+
             linkArray.map(link => {
                 fetch(link + '/README.md').then(res => {
                     tmplink = link
@@ -98,6 +98,7 @@
                 return contents.map(dirFilter)
             })
         exLinks.then(links => createLinkElement(links))
+        console.log(document.location)
     </script>
 </body>
 
