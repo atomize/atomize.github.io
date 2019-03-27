@@ -50,19 +50,18 @@
             color: aliceblue !important;
         }
 
-        li>a>h1 {}
+        /* li>a>h1 {} */
     </style>
 </head>
 
 <body>
 
     <div>
-        <ul id="linkList">
-
-        </ul>
+        <ul id="linkList"></ul>
     </div>
     <script>
         const converter = new showdown.Converter()
+        showdown.setFlavor('github');
         const dirFilter = (response) => {
             if (response.type === 'dir') {
                 return `${response.path}`
@@ -71,17 +70,26 @@
             }
 
         }
+        const fetchFile = (url) => {
+            let textContent = '';
+            return fetch(url).then(res => res.text()).then((text) => {
+                return textContent = text;
+            })
+            return textContent
+        }
+        var list = document.getElementById('linkList')
         const createLinkElement = (linkArray) => {
-            return linkArray.map(link => {
-                var req = new XMLHttpRequest();
-                req.open('GET', link + '/README.md', false);
-                req.send(null);
-                var readme = req.response;
-                return `<li><a href="${link}">${converter.makeHtml(readme)}</a></li>`
-
+            let tmplink = ''
+            let returnArr = []
+            linkArray.map(link => {
+                fetch(link + '/README.md').then(res => {
+                    tmplink = link
+                    return res.text()
+                }).then(txt => {
+                    list.innerHTML += `<li><a href="${tmplink}">${converter.makeHtml(txt)}</a></li>`
+                })
             })
         }
-
         var exLinks = fetch('https://api.github.com/repos/atomize/atomize.github.io/contents/examples')
             .then(res => {
                 return res.json()
@@ -89,12 +97,7 @@
             .then(contents => {
                 return contents.map(dirFilter)
             })
-        var list = document.getElementById('linkList')
-
-        exLinks.then(links => createLinkElement(links)).then(links => {
-            links = links.join('')
-            list.innerHTML = links
-        })
+        exLinks.then(links => createLinkElement(links))
     </script>
 </body>
 
