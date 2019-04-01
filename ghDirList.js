@@ -4,7 +4,7 @@ showdown.setFlavor("github");
 const fetchHeaders = {
   headers: {
     Accept: "application/vnd.github.v3+json",
-    Authorization: "token a185f5058a1b89eede21d810611ff54860c5f9c3"
+    Authorization: "a185f5058a1b89eede21d810611ff54860c5f9c3"
   }
 };
 async function findGithubRepoContents(username, repo) {
