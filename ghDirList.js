@@ -1,12 +1,13 @@
+//a185f5058a1b89eede21d810611ff54860c5f9c3
 const converter = new showdown.Converter();
 showdown.setFlavor("github");
-
+const fetchHeaders = {
+  headers: {
+    Accept: "application/vnd.github.v3+json",
+    Authorization: "token a185f5058a1b89eede21d810611ff54860c5f9c3"
+  }
+};
 async function findGithubRepoContents(username, repo) {
-  const fetchHeaders = {
-    username: "6b5199c94a1bab833ee02c312c30ae2ca0773498",
-    cache: "no-cache"
-  };
-
   const url = "https://api.github.com";
   const repos = `/repos/${username}/${repo}/commits`;
   let repoFetch = await fetch(`${url}${repos}`, fetchHeaders);
@@ -42,35 +43,38 @@ const createListElement = linkArray => {
   let listEl = document.createElement("ul");
   linkArray.map(links => {
     if (links[1].length == 0) {
-      return listEl.innerHTML += `<li><input type="button" id="${links[0]}">
+      return (listEl.innerHTML += `<li><input type="button" id="${links[0]}">
                           <label for="${links[0]}">
                           <a href='/${links[0]}'>${links[0]}</a>
                           </label></li>
-      `
+      `);
     } else {
       let innerLinks, tempalteCollapse;
-      Promise.all(links[1].map((url,i) =>
-        fetch(url+"/README.md").then(resp => resp.text())
-    )).then(texts => {
-       innerLinks = links[1].map((link,i) => {
-        return `<li><a href="${link}">${converter.makeHtml(texts[i])}</a></li>`
-      })
-    }).then(()=>{
-      
-       tempalteCollapse = `<li><input type="checkbox" id="${links[0]}">
+      Promise.all(
+        links[1].map((url, i) =>
+          fetch(url + "/README.md", fetchHeaders).then(resp => resp.text())
+        )
+      )
+        .then(texts => {
+          innerLinks = links[1].map((link, i) => {
+            return `<li><a href="${link}">${converter.makeHtml(
+              texts[i]
+            )}</a></li>`;
+          });
+        })
+        .then(() => {
+          tempalteCollapse = `<li><input type="checkbox" id="${links[0]}">
       <label for="${links[0]}">${links[0]}</label>
       <ul class="${links[0]}">
-         <li>${innerLinks.join(' ')}</li>
-      </ul></li>`
-      return listEl.innerHTML += tempalteCollapse
-    })
-      
-      
-      
+         ${innerLinks.join(" ")}
+      </ul></li>`;
+          return (listEl.innerHTML += tempalteCollapse);
+        });
     }
   });
-  let wrapper = document.querySelector('.wrapper')
-  wrapper.append(listEl)
+  let wrapper = document.querySelector(".wrapper");
+  wrapper.innerHTML = "";
+  wrapper.append(listEl);
 };
 var list = document.getElementById("linkList");
 findGithubRepoContents("atomize", "atomize.github.io")
@@ -85,14 +89,15 @@ findGithubRepoContents("atomize", "atomize.github.io")
         fetchedPaths.rootPaths[path.path] = [];
       } else {
         let rootDir = path.path.split("/")[0];
-        !fetchedPaths.rootPaths[rootDir] ?
-          (fetchedPaths.rootPaths[rootDir] = [] &&
-            fetchedPaths.rootPaths[rootDir].push(
+        !fetchedPaths.rootPaths[rootDir]
+          ? (fetchedPaths.rootPaths[rootDir] =
+              [] &&
+              fetchedPaths.rootPaths[rootDir].push(
+                document.location.origin + "/" + path.path
+              ))
+          : fetchedPaths.rootPaths[rootDir].push(
               document.location.origin + "/" + path.path
-            )) :
-          fetchedPaths.rootPaths[rootDir].push(
-            document.location.origin + "/" + path.path
-          );
+            );
       }
     }, []);
 

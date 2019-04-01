@@ -1,0 +1,78 @@
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+h1 {
+    color: #ebb617;
+    font-size: 2em !important;
+
+}
+
+h2 {
+    color: #b58900;
+}
+
+h3 {
+    color: #bed300;
+    font-weight: lighter;
+
+}
+
+
+h4 {
+    color: #bcdf70;
+    margin-bottom: 10px;
+}
+
+h5 {
+    color: #ae81ff;
+    font-weight: lighter;
+}
+
+h6 {
+    color: #694f00;
+}
+
+hr {
+    border: 1px solid #215968;
+}
+
+html {
+    margin: 0px;
+}
+
+body {
+    margin: 0vh auto !important;
+    background-color: #1e1e1e;
+    color: #f8f8f8;
+}
+
+@font-face {
+    font-family: 'Monserrat';
+    src: ('https://fonts.googleapis.com/css?family=Montserrat:400,600');
+}
+
+blockquote {
+    margin: 0px;
+}
+
+section {
+    margin: 0px auto;
+    max-width: 63vw;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
+
+
+
+a {
+    color: #1e6ea7;
+}
+
+a:hover {
+    color: #268bd2;
+}

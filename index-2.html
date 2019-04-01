@@ -7,136 +7,168 @@
 <!--<![endif]-->
 
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Berti - Full-Stack Dev</title>
-    <meta name="description"
-        content="Jonathan Berti - Full-Stack Web Developer Resume - 2019 - I've been writing code for the web and using Linux since Netscape Navigator 1.0 shipped with RedHat in 1997. Since then, I have been solving problems on the web with Javascript, PHP, Python and a host of other languages. Maybe you should hire me. I charge $1,000,000 an hour usually, but, I like you, I bet we could work something out." />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon"
-        href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAO9AAADvQBThc/RQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAK0SURBVFiFvddNqFVVFAfw333v5mflB/ZUFIU0DUEhR0HZRFQEUaShJBY8k8SBQx2kTUKjQKf5MdCBQuAkSNCJghAhOPALFEIkjEw0U/OL53sO1rne8/Y9577nO/f1h8PlrL3XWf+991r/tS+jgx4cx0Pcxrd4Y5RitaCOCxhInr3/F4HlBcEH8BRj0sldo0Cgp8Q+ts3YK0zH+xUJLFK8A7dRG8r5MC5VJAAHk+D92FA0sZ6838fUDhD4Er9iBZ7jKE4Px/FrkSydwoc4h8e4hi1DOWwTWzaxA8Fn4IHWXNicjS/G2rQK7me/nTiGdXirwN4g8AGWpDnwT47AH0ME+Bgfid0ah0lZwDmYi1klfu9mv13oTgl8liPQDpNFUo0bYl4RpuBNUZItBP7GMc2dSDERS9E3wuANzM8I1FMCd7EDjzATX2k2kT+xSZxdP26Ilbwjmk6fyKFb4vj+VZ7172UE1LAnN7BU1O6PQjqf5cb6DZbuJwaX7D78lXuvZQuZUEBgp9jteTVRGp3AEq0qelGUW4pDQqjmjUYzyuN6iX2+WHitLvr0bCVa3QbPxLY3cKdgzs0S37m4J1dtyxR3sHZPWaUQpfa96ANFvndEMp+qQqChmim2impq53slW/3FThKo48gw/PqxMfO5nupAFRzQVNIU/+GyWPFPmq15fBUC+dtNrxCpFFeFst7DQiFAm7BSCNfdTpRhD34osJ8XidqLBXiB1UIpfxci9mlj8khy4EHmu69gbHf2zeWa6rkmG+vNs6x6BG/ji8R+Et8YpsJWOYIa1ht86RjA9uEGr0qgC6sS2xlx93utj4wU3fgksf3yuh+pQmCM1mvX2ZK5kzX/FU0TKjgo9kiqoEjfuwuC7y+Zv4tmFfRp31yK8BAn8Lm4LW0RtZ7iO/wsrnDjc/bf4CVFZu1lWeEHHAAAAABJRU5ErkJggg==" />
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js'></script>
-    <script src='ghDirList.js'></script>
-    <style>
-        /*  body {
-            background-color: #3a3535;
-            color: aliceblue;
-        }
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Berti - Full-Stack Dev</title>
+  <meta name="description"
+    content="Jonathan Berti - Full-Stack Web Developer Resume - 2019 - I've been writing code for the web and using Linux since Netscape Navigator 1.0 shipped with RedHat in 1997. Since then, I have been solving problems on the web with Javascript, PHP, Python and a host of other languages. Maybe you should hire me. I charge $1,000,000 an hour usually, but, I like you, I bet we could work something out." />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon"
+    href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAO9AAADvQBThc/RQAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAK0SURBVFiFvddNqFVVFAfw333v5mflB/ZUFIU0DUEhR0HZRFQEUaShJBY8k8SBQx2kTUKjQKf5MdCBQuAkSNCJghAhOPALFEIkjEw0U/OL53sO1rne8/Y9577nO/f1h8PlrL3XWf+991r/tS+jgx4cx0Pcxrd4Y5RitaCOCxhInr3/F4HlBcEH8BRj0sldo0Cgp8Q+ts3YK0zH+xUJLFK8A7dRG8r5MC5VJAAHk+D92FA0sZ6838fUDhD4Er9iBZ7jKE4Px/FrkSydwoc4h8e4hi1DOWwTWzaxA8Fn4IHWXNicjS/G2rQK7me/nTiGdXirwN4g8AGWpDnwT47AH0ME+Bgfid0ah0lZwDmYi1klfu9mv13oTgl8liPQDpNFUo0bYl4RpuBNUZItBP7GMc2dSDERS9E3wuANzM8I1FMCd7EDjzATX2k2kT+xSZxdP26Ilbwjmk6fyKFb4vj+VZ7172UE1LAnN7BU1O6PQjqf5cb6DZbuJwaX7D78lXuvZQuZUEBgp9jteTVRGp3AEq0qelGUW4pDQqjmjUYzyuN6iX2+WHitLvr0bCVa3QbPxLY3cKdgzs0S37m4J1dtyxR3sHZPWaUQpfa96ANFvndEMp+qQqChmim2impq53slW/3FThKo48gw/PqxMfO5nupAFRzQVNIU/+GyWPFPmq15fBUC+dtNrxCpFFeFst7DQiFAm7BSCNfdTpRhD34osJ8XidqLBXiB1UIpfxci9mlj8khy4EHmu69gbHf2zeWa6rkmG+vNs6x6BG/ji8R+Et8YpsJWOYIa1ht86RjA9uEGr0qgC6sS2xlx93utj4wU3fgksf3yuh+pQmCM1mvX2ZK5kzX/FU0TKjgo9kiqoEjfuwuC7y+Zv4tmFfRp31yK8BAn8Lm4LW0RtZ7iO/wsrnDjc/bf4CVFZu1lWeEHHAAAAABJRU5ErkJggg==" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.9.0/showdown.min.js"></script>
+  <script src="ghDirList.js"></script>
+  <style>
 
-        a {
-            font-family: 'Courier New', Courier, monospace;
-        }
+    @import url(https://fonts.googleapis.com/css?family=Roboto);
 
-        ul {
-            list-style-type: none;
-            padding-inline-start: 0px !important;
+    body {
+      font-family: "Roboto", "Sans Serif";
+      font-size: 18pt;
+      color: #fff;
+      background: #444a4e;
+    }
+    h1 {
+          width: 100%;
+      height: fit-content;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background: #27628a77;
+      font-size: 20px;
+    }
+    p {
+      font-size:18px;
+      height: 100%;
+      color: #ff9900;
+      background-color: #3a473dbd;
+      border-radius: 50%;
+      width: fit-content;
+      
+    }
+    .wrapper {
+      margin: 0px auto;
+      width: max-content;
+      text-align: center;
+    }
 
-        }
+    ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: fit-content;
+    }
 
-        li {
-            border: 1px solid black;
-            margin-block-start: 5px;
-            padding: 1vw;
+    label {
+      display: block;
+      cursor: pointer;
+      padding: 10px;
+      border: 1px solid #fff;
+      border-bottom: none;
+    }
 
-        }
+    label:hover {
+      background: #353b39;
+    }
 
-        li>* {
-            align-content: center;
-            text-align: center;
-            margin: 0px auto;
-        }
+    label.last {
+      border-bottom: 1px solid #fff;
+    }
 
-        li>a {
-            text-decoration: none;
-            color: aliceblue !important;
-        }
- */
-        /* li>a>h1 {} */
-        @import url(https://fonts.googleapis.com/css?family=Roboto);
+    ul ul li {
+      margin: 0 auto;
+      width:100%;
+      height: fit-content;
+      padding: 5% 0 5% 0;
+      -moz-border-radius: 50%;
+      -webkit-border-radius: 50%;
+      border-radius: 50%;
+      background: #252627;
+      text-overflow: ellipsis;
+      display: grid;
+      align-content: center;
+      justify-content: center;
+    }
 
-        body {
-            font-family: "Roboto", "Sans Serif";
-            font-size: 18pt;
-            color: #fff;
-            background: #3498db;
-        }
+    input[type="checkbox"] {
+      position: absolute;
+      left: -9999px;
+    }
 
-        .wrapper {
-            margin: 10% auto;
-            width: 400px;
-        }
+    input[type="button"] {
+      position: absolute;
+      left: -9999px;
+    }
 
-        ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
-        label {
-            display: block;
-            cursor: pointer;
-            padding: 10px;
-            border: 1px solid #fff;
-            border-bottom: none;
-        }
+    input[type="checkbox"]~ul {
+      height: 0;
+      transform: scaleY(0);
+    }
 
-        label:hover {
-            background: #26C281;
-        }
+    input[type="checkbox"]:checked~ul {
+      height: 100%;
+      transform-origin: top;
+      transition: transform 0.2s ease-out;
+      transform: scaleY(1);
+    }
 
-        label.last {
-            border-bottom: 1px solid #fff;
-        }
+    input[type="checkbox"]:checked+label {
+      background: #86721b;
+      border-bottom: 1px solid #fff;
+    }
 
-        ul ul li {
-            padding: 10px;
-            background: #59ABE3;
-        }
+    body>div>ul>label:last-child {
+      border-bottom: 1px solid #fff;
+    }
 
+    .lds-hourglass {
+      display: inline-block;
+      position: relative;
+      width: 64px;
+      text-align: center;
+      height: 64px;
+      margin: 0px auto;
+    }
 
-        input[type="checkbox"] {
-            position: absolute;
-            left: -9999px;
-        }
+    .lds-hourglass:after {
+      content: " ";
+      display: block;
+      border-radius: 50%;
+      width: 0;
+      height: 0;
+      margin: 6px;
+      box-sizing: border-box;
+      border: 26px solid #fff;
+      border-color: #fff transparent #fff transparent;
+      animation: lds-hourglass 1.2s infinite;
+    }
 
-        input[type="button"] {
-            position: absolute;
-            left: -9999px;
-        }
+    @keyframes lds-hourglass {
+      0% {
+        transform: rotate(0);
+        animation-timing-function: cubic-bezier(0.55, 0.055, 0.675, 0.19);
+      }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+      50% {
+        transform: rotate(900deg);
+        animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+      }
 
-        input[type="checkbox"]~ul {
-            height: 0;
-            transform: scaleY(0);
-        }
-
-        input[type="checkbox"]:checked~ul {
-            height: 100%;
-            transform-origin: top;
-            transition: transform .2s ease-out;
-            transform: scaleY(1);
-        }
-
-        input[type="checkbox"]:checked+label {
-            background: #26C281;
-            border-bottom: 1px solid #fff;
-        }
-        body > div > ul > label:last-child {
-            border-bottom: 1px solid #fff;
-        }
-    </style>
+      100% {
+        transform: rotate(1800deg);
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <div class="wrapper">
-       
-    </div>
-  
-
+  <div class="wrapper">
+    <div class="lds-hourglass"></div>
+  </div>
 </body>
 
 </html>
