@@ -21,7 +21,7 @@
 		var isTut = false
 		var tutSep;
 		var commentArr = []
-
+		
 		var dataStarts = function (text) {
 			return findDataStarts(text.trim(), new RegExp('^[^A-Z^a-z]+[^\s+' + tutSep + ']' + tutSep, 'm'))
 		}

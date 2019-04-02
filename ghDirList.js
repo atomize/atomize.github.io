@@ -32,13 +32,7 @@ const dirFilter = (response, type) => {
     }
   });
 };
-/* const fetchFile = (url) => {
-    let textContent = '';
-    return fetch(url).then(res => res.text()).then((text) => {
-        return textContent = text;
-    })
-    return textContent
-} */
+
 const createListElement = linkArray => {
   let listEl = document.createElement("ul");
   linkArray.map(links => {
@@ -51,10 +45,10 @@ const createListElement = linkArray => {
     } else {
       let innerLinks, tempalteCollapse;
       Promise.all(
-        links[1].map((url, i) =>
-          fetch(url + "/README.md", fetchHeaders).then(resp => resp.text())
+          links[1].map((url, i) =>
+            fetch(url + "/README.md", fetchHeaders).then(resp => resp.text())
+          )
         )
-      )
         .then(texts => {
           innerLinks = links[1].map((link, i) => {
             return `<li><a href="${link}">${converter.makeHtml(
@@ -89,39 +83,17 @@ findGithubRepoContents("atomize", "atomize.github.io")
         fetchedPaths.rootPaths[path.path] = [];
       } else {
         let rootDir = path.path.split("/")[0];
-        !fetchedPaths.rootPaths[rootDir]
-          ? (fetchedPaths.rootPaths[rootDir] =
-              [] &&
-              fetchedPaths.rootPaths[rootDir].push(
-                document.location.origin + "/" + path.path
-              ))
-          : fetchedPaths.rootPaths[rootDir].push(
+        !fetchedPaths.rootPaths[rootDir] ?
+          (fetchedPaths.rootPaths[rootDir] = [] &&
+            fetchedPaths.rootPaths[rootDir].push(
               document.location.origin + "/" + path.path
-            );
+            )) :
+          fetchedPaths.rootPaths[rootDir].push(
+            document.location.origin + "/" + path.path
+          );
       }
     }, []);
 
     return Object.entries(fetchedPaths.rootPaths);
   })
   .then(createListElement);
-
-/* const createLinkElement = (linkArray) => {
-    let tmplink = ''
-
-    linkArray.map(link => {
-        fetch(link + '/README.md').then(res => {
-            tmplink = link
-            return res.text()
-        }).then(txt => {
-            list.innerHTML += `<li><a href="${tmplink}">${converter.makeHtml(txt)}</a></li>`
-        })
-    })
-}
-var exLinks = fetch('https://api.github.com/repos/atomize/atomize.github.io/contents/examples')
-    .then(res => {
-        return res.json()
-    })
-    .then(contents => {
-        return contents.map(dirFilter)
-    })
-exLinks.then(links => createLinkElement(links)) */
