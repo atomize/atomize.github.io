@@ -396,7 +396,7 @@ document.addEventListener("mouseup", function () {
   }
 });
 
-let socket = io.connect("https://streamer.cryptocompare.com/");
+let socket = io.connect("wss://streamer.cryptocompare.com/");
 
 const addSubs = subsArr => {
   socket.emit("SubAdd", {

@@ -1,4 +1,5 @@
 //a185f5058a1b89eede21d810611ff54860c5f9c3
+
 const converter = new showdown.Converter();
 showdown.setFlavor("github");
 const fetchHeaders = {
@@ -37,11 +38,14 @@ const createListElement = linkArray => {
   let listEl = document.createElement("ul");
   linkArray.map(links => {
     if (links[1].length == 0) {
-      return (listEl.innerHTML += `<li><input type="button" id="${links[0]}">
-                          <label for="${links[0]}">
-                          <a href='/${links[0]}'>${links[0]}</a>
-                          </label></li>
-      `);
+      return (
+        listEl.innerHTML += `<li>
+                            <input type="button" id="${links[0]}">
+                            <label for="${links[0]}">
+                            <a href='/${links[0]}'>${links[0]}</a>
+                            </label>
+                            </li>`
+      );
     } else {
       let innerLinks, tempalteCollapse;
       Promise.all(
@@ -57,11 +61,12 @@ const createListElement = linkArray => {
           });
         })
         .then(() => {
-          tempalteCollapse = `<li><input type="checkbox" id="${links[0]}">
-      <label for="${links[0]}">${links[0]}</label>
-      <ul class="${links[0]}">
-         ${innerLinks.join(" ")}
-      </ul></li>`;
+          tempalteCollapse =
+            `<li><input type="checkbox" id="${links[0]}">
+                            <label for="${links[0]}">${links[0]}</label>
+                            <ul class="${links[0]}">
+                              ${innerLinks.join(" ")}
+                            </ul></li>`;
           return (listEl.innerHTML += tempalteCollapse);
         });
     }
@@ -70,7 +75,7 @@ const createListElement = linkArray => {
   wrapper.innerHTML = "";
   wrapper.append(listEl);
 };
-var list = document.getElementById("linkList");
+
 findGithubRepoContents("atomize", "atomize.github.io")
   .then(arr => dirFilter(arr, "tree"))
   .then(paths => {
