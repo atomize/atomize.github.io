@@ -395,9 +395,9 @@ document.addEventListener("mouseup", function () {
     addSubs(ccc.appInfo.actualSubs);
   }
   if (event.target.classList.contains("unsubscribe")) {
-    if (ccc.appInfo.actualSubs.length > 0) {
+   
       removeSubs(ccc.appInfo.actualSubs);
-    }
+    
 
   }
 });
