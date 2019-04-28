@@ -86,17 +86,17 @@ var createListElement = function (linkArray) {
             return (listEl.innerHTML += "<li>\n                            <input type=\"button\" id=\"" + links[0] + "\">\n                            <label for=\"" + links[0] + "\">\n                            <a href='/" + links[0] + "'>" + links[0] + "</a>\n                            </label>\n                            </li>");
         }
         else {
-            var innerLinks_1 = [], templateCollapse_1;
+            var innerLinks = void 0, templateCollapse_1;
             Promise.all(links[1].map(function (url, i) {
                 return fetch(url + "/README.md", fetchHeaders).then(function (resp) { return resp.text(); });
             }))
                 .then(function (texts) {
-                innerLinks_1 = links[1].map(function (link, i) {
+                return links[1].map(function (link, i) {
                     return "<li><a href=\"" + link + "\">" + converter.makeHtml(texts[i]) + "</a></li>";
                 });
             })
-                .then(function () {
-                templateCollapse_1 = "<li><input type=\"checkbox\" id=\"" + links[0] + "\">\n                            <label for=\"" + links[0] + "\">" + links[0] + "</label>\n                            <ul class=\"" + links[0] + "\">\n                              " + innerLinks_1.join(" ") + "\n                            </ul></li>";
+                .then(function (thing) {
+                templateCollapse_1 = "<li><input type=\"checkbox\" id=\"" + links[0] + "\">\n                            <label for=\"" + links[0] + "\">" + links[0] + "</label>\n                            <ul class=\"" + links[0] + "\">\n                              " + thing.join(" ") + "\n                            </ul></li>";
                 return (listEl.innerHTML += templateCollapse_1);
             });
         }
@@ -104,18 +104,25 @@ var createListElement = function (linkArray) {
     var domDoc = document;
     var wrapper = domDoc.querySelector(".wrapper");
     wrapper.innerHTML = "";
-    domDoc.append(listEl);
+    wrapper.append(listEl);
 };
 findGithubRepoContents("atomize", "atomize.github.io")
     .then(function (arr) { return dirFilter(arr, "tree"); })
     .then(function (paths) {
-    paths.map(function (path, fetchedPaths) {
+    var fetchedPaths = {
+        rootPaths: {}
+    };
+    paths.map(function (path) {
+        if (/^\./.test(path.path)) {
+            return;
+        }
         if (!path.path.includes("/")) {
-            fetchedPaths.rootPaths;
+            /* fetchedPaths.rootPaths; */
             fetchedPaths.rootPaths[path.path] = [];
         }
         else {
             var rootDir = path.path.split("/")[0];
+            console.log(fetchedPaths.rootPaths[rootDir]);
             !fetchedPaths.rootPaths[rootDir]
                 ? (fetchedPaths.rootPaths[rootDir] =
                     [] &&

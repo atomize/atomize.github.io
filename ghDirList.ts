@@ -26,7 +26,7 @@ async function findGithubRepoContents(username: string, repo: string) {
   return fullCommitTree.tree;
 }
 
-const dirFilter = (response: any, type: string) => {
+const dirFilter = (response: string[], type: string) => {
   return response.filter((responseItem: any) => {
     if (responseItem.type === type) {
       return `${responseItem.path}`;
@@ -36,7 +36,7 @@ const dirFilter = (response: any, type: string) => {
 
 const createListElement = (linkArray: any) => {
   let listEl = document.createElement("ul");
-  linkArray.map((links: string[][]) => {
+  linkArray.map((links: any) => {
     if (links[1].length == 0) {
       return (listEl.innerHTML += `<li>
                             <input type="button" id="${links[0]}">
@@ -45,25 +45,24 @@ const createListElement = (linkArray: any) => {
                             </label>
                             </li>`);
     } else {
-      let innerLinks: [] = [],
-        templateCollapse;
+      let innerLinks: [], templateCollapse;
       Promise.all(
         links[1].map((url: string, i: number) =>
           fetch(url + "/README.md", fetchHeaders).then(resp => resp.text())
         )
       )
-        .then((texts: Array) => {
-          innerLinks = links[1].map((link: string, i: number) => {
+        .then((texts: any) => {
+          return links[1].map((link: string, i: number) => {
             return `<li><a href="${link}">${converter.makeHtml(
               texts[i]
             )}</a></li>`;
           });
         })
-        .then(() => {
+        .then((thing: any) => {
           templateCollapse = `<li><input type="checkbox" id="${links[0]}">
                             <label for="${links[0]}">${links[0]}</label>
                             <ul class="${links[0]}">
-                              ${innerLinks.join(" ")}
+                              ${thing.join(" ")}
                             </ul></li>`;
           return (listEl.innerHTML += templateCollapse);
         });
@@ -72,21 +71,25 @@ const createListElement = (linkArray: any) => {
   let domDoc = document;
   let wrapper = <Element>domDoc.querySelector(".wrapper");
   wrapper.innerHTML = "";
-  domDoc.append(listEl);
+  wrapper.append(listEl);
 };
 
 findGithubRepoContents("atomize", "atomize.github.io")
   .then(arr => dirFilter(arr, "tree"))
   .then(paths => {
-    interface fetchedPaths {
-      rootPaths: {};
-    }
-    paths.map((path: any, fetchedPaths: fetchedPaths) => {
+    let fetchedPaths = {
+      rootPaths: <any>{}
+    };
+    paths.map((path: any) => {
+      if (/^\./.test(path.path)) {
+        return;
+      }
       if (!path.path.includes("/")) {
-        fetchedPaths.rootPaths;
+        /* fetchedPaths.rootPaths; */
         fetchedPaths.rootPaths[path.path] = [];
       } else {
         let rootDir = path.path.split("/")[0];
+        console.log(fetchedPaths.rootPaths[rootDir]);
         !fetchedPaths.rootPaths[rootDir]
           ? (fetchedPaths.rootPaths[rootDir] =
               [] &&
