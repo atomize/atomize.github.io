@@ -24,9 +24,9 @@ html {
 }
 
 body {
-    margin: 0vh auto !important;
-    background-color: #1e1e1e;
-    color: #f8f8f8;
+    /* margin: 0vh auto !important; */
+    background-color: #e4e4e4;
+    color: #000000;
 }
 
 @font-face {
@@ -43,44 +43,46 @@ li {
 }
 
 .skills-col2 {
-    color: #e6db74;
+    color: #5c5c5c;
 }
 
 .skills-col1 {
-    color: #ae81ff;
+    color: #444444;
 }
 
 .name {
     color: #66d9ef;
-
+    -webkit-text-stroke: 1px black;
 }
 
 .position-title {
-    color: #4ab6e0;
+    color: #0000009f;
 }
 
 .company-name {
-    color: #b58900;
+    color: #303030;
     font-weight: lighter;
 }
 
 .city {
-    color: #e6db74;
+    color: #6b6b6b;
     font-weight: lighter;
 }
 
 .year,
 .mobile {
-    color: #abe674;
+    color: #4a5f36;
     font-weight: lighter;
 }
 
 .purple {
-    color: #ae81ff;
+    color: #414141;
     font-weight: lighter;
 }
 
-
+.sub-li{
+    margin-top: 5px;
+}
 
 
 
@@ -97,16 +99,16 @@ a:hover {
 h1,
 h2,
 h3 {
-    color: #b58900;
+    color: #000000;
 }
 
 h4 {
-    color: #cde59b;
+    color: #25300e;
     margin-bottom: 10px;
 }
 
 h5 {
-    color: #ae81ff;
+    color: #5900ff;
     font-weight: lighter;
     margin-top: 5px;
 }
@@ -134,7 +136,7 @@ hr {
     grid-column-gap: 10px;
     /*     max-height: 100vw;
  */
-    max-width: auto;
+    width: 70vw;
     min-width: auto;
     align-content: center;
     /*Use media query for mobile - make width 75vw*/
@@ -142,6 +144,7 @@ hr {
     grid-template-areas: "name name""skills story""exper exper""edu edu";
     grid-auto-rows: auto;
     grid-auto-columns: 1fr 1fr;
+    margin: auto;
 }
 
 .grid-wrapper>div {
@@ -188,7 +191,7 @@ hr {
 }
 
 .email {
-    color: #ae81ff;
+    color: #110030;
     display: grid;
     justify-content: center;
 
@@ -197,17 +200,17 @@ hr {
 
 .username {
 
-    color: #fd025e;
+    color: #4646466d;
 }
 
 .link1>.username {
 
-    color: #fd025e;
+    color: #00000072;
     grid-column: 2;
 }
 
 .link1 {
-    color: #fb7aa9d2;
+    color: #292929d2;
     display: grid;
     justify-content: center;
     grid-column: 1;
@@ -219,12 +222,12 @@ hr {
 
 .link2>.berti {
 
-    color: #fd025e;
+    color: #0e004d;
     grid-column: 1;
 }
 
 .link2 {
-    color: #fb7aa9d2;
+    color: #003cff90;
     display: inline-flex;
     justify-content: center;
     /*     grid-area: name;
@@ -342,7 +345,7 @@ hr {
 }
 
 .section-row {
-    border-bottom: 1px solid #fb7aa98c;
+    border-bottom: 1px solid #0008ff70;
 }
 
 /******/
@@ -384,9 +387,11 @@ hr {
     margin-top: 0px;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1080px) {
     h4 {
-        font-size: smaller;
+
+        font-weight: 700;
+        color: #000000;
     }
 
     .grid-wrapper {
@@ -429,9 +434,9 @@ hr {
         margin-bottom: 0px !important;
     }
 
-    .position-title {
+  /*   .position-title {
         font-weight: lighter !important;
-    }
+    } */
 
     ul {
         padding-inline-start: 30px;
